@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/explosion.wav","C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/explosion.xnb","SoundEffectProcessor","SoundEffectContent",247852,247913,0.7404025
+"C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/success.wav","C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/success.xnb","SoundEffectProcessor","SoundEffectContent",98348,98409,0.1909716
+"C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/thrust.wav","C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/thrust.xnb","SoundEffectProcessor","SoundEffectContent",94128,94189,0.198285
