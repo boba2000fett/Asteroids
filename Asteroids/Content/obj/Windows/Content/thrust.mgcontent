@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/thrust.wav</SourceFile>
+  <SourceFile>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/thrust.wav</SourceFile>
   <SourceTime>2021-03-24T20:37:38.2337944-04:00</SourceTime>
-  <DestFile>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/Content/thrust.xnb</DestFile>
-  <DestTime>2021-05-04T00:35:26.9197605-04:00</DestTime>
+  <DestFile>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/thrust.xnb</DestFile>
+  <DestTime>2021-05-06T18:04:32.281579-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T11:35:54-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

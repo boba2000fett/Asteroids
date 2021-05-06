@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MyLibrary.Characters">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Characters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyLibrary.Font">
+    <Position X="5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAgAAAAAAAAAAEAAAQAAAACABAgAAAAAAAA=</HashCode>
+      <FileName>Font.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyLibrary.FPSCounterComponent">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAQAAAgAAACAAAAAAAAACIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FPSCounterComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyLibrary.Line2D">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Line2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyLibrary.PrimitiveBatch">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoAAAACECAAAAAAEAAAAAAAAAAYECAAAAgAAAAoACA=</HashCode>
+      <FileName>PrimitiveBatch.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

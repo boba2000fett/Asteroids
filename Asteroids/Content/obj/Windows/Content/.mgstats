@@ -1,4 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/explosion.wav","C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/Content/explosion.xnb","SoundEffectProcessor","SoundEffectContent",247852,247913,0.2998696
-"C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/success.wav","C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/Content/success.xnb","SoundEffectProcessor","SoundEffectContent",98348,98409,0.1674507
-"C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/thrust.wav","C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/bin/Windows/Content/thrust.xnb","SoundEffectProcessor","SoundEffectContent",94128,94189,0.1745156
+"C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/explosion.wav","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/explosion.xnb","SoundEffectProcessor","SoundEffectContent",247852,247913,0.2082397
+"C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/success.wav","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/success.xnb","SoundEffectProcessor","SoundEffectContent",98348,98409,0.1284759
+"C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/thrust.wav","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/thrust.xnb","SoundEffectProcessor","SoundEffectContent",94128,94189,0.1108225

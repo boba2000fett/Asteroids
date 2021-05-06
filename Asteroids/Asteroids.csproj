@@ -73,7 +73,7 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Import Asteroids\MyLibrary\MyLibrary.csproj">
+    <ProjectReference Include="..\MyLibrary\MyLibrary.csproj">
       <Project>{796b9f93-38c1-4dc9-91f0-2c518992e217}</Project>
       <Name>MyLibrary</Name>
     </ProjectReference>

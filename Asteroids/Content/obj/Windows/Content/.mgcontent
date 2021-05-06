@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/explosion.wav</File>
-    <File>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/success.wav</File>
-    <File>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/thrust.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/explosion.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/success.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/thrust.wav</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

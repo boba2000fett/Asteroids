@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteroids", "Asteroids\Asteroids.csproj", "{7B236071-E085-40E8-839C-8175B3B18CFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary", "..\..\Import Asteroids\MyLibrary\MyLibrary.csproj", "{796B9F93-38C1-4DC9-91F0-2C518992E217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary", "MyLibrary\MyLibrary.csproj", "{796B9F93-38C1-4DC9-91F0-2C518992E217}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
