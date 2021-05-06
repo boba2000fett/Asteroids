@@ -123,8 +123,12 @@ namespace Asteroids.Screens
                 foreach (Laser l in activeLasers)
                 {
                     l.Update(gameTime);
+                    
                 }
             }
+
+            //Iterate through Rocks Linked List
+            //Iterate through EnemyShip LinkedList
             
         }
 
@@ -141,6 +145,7 @@ namespace Asteroids.Screens
                 foreach (Laser l in activeLasers)
                 {
                     l.Draw(gameTime);
+                    
                 }
             }
             
