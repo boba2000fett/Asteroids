@@ -15,7 +15,7 @@ using MyLibrary;
 
 namespace Asteroids
 {
-    class Rocks
+    class Rocks : DrawableGameComponent
     {
         #region VARIABLES 
 
@@ -30,7 +30,7 @@ namespace Asteroids
 
         #region PlayerShip Variables
 
-        LinkedList<Vector2> laser;
+        LinkedList<Vector2> rocks;
 
         private Vector2 position;
         private float scale;
@@ -72,19 +72,19 @@ namespace Asteroids
         float xInitialPos;
         float yInitialPos;
 
-        public readonly bool typeOfLaser;
+        public readonly bool typeOfRocks;
 
         #endregion
 
         #endregion
 
         #region Constructor
-        public Laser(Game game, float xPosition, float yPosition, float trajectory, bool type) : base(game)
+        public Rocks(Game game, float xPosition, float yPosition, float trajectory, bool type) : base(game)
         {
             pb = new PrimitiveBatch(game.GraphicsDevice);
             xInitialPos = xPosition;
             yInitialPos = yPosition;
-            typeOfLaser = type;
+            typeOfRocks = type;
             rotation = trajectory;
         }
 
@@ -105,7 +105,7 @@ namespace Asteroids
 
             //rotation = 0;
 
-            laser = GetLaser();
+            rocks = GetRocks();
 
             elapsedTime = TimeSpan.Zero;
             gravityTime = TimeSpan.Zero;
@@ -135,7 +135,7 @@ namespace Asteroids
 
             RecalculatePosition(gameTime);
 
-            Console.WriteLine($"Laser: PositionX {position.X} PositionY {position.Y}");
+            Console.WriteLine($"Rocks: PositionX {position.X} PositionY {position.Y}");
 
             base.Update(gameTime);
         }
@@ -146,7 +146,7 @@ namespace Asteroids
 
             pb.Begin(PrimitiveType.LineList);
 
-            DrawLaser();
+            DrawRocks();
 
             pb.End();
 
@@ -156,11 +156,11 @@ namespace Asteroids
 
         #endregion
 
-        #region Drawing Laser Methods (DrawLaser, GetSquare, GetLaser)
+        #region Drawing Rocks Methods (DrawRocks, GetSquare, GetRocks)
 
-        public void DrawLaser()
+        public void DrawRocks()
         {
-            LinkedList<Vector2> lineList = GetLaser();
+            LinkedList<Vector2> lineList = GetRocks();
             Color color = new Color();
 
             color = Color.White;
@@ -181,7 +181,7 @@ namespace Asteroids
         }
 
 
-        public LinkedList<Vector2> GetLaser()
+        public LinkedList<Vector2> GetRocks()
         {
             LinkedList<Vector2> list = new LinkedList<Vector2>();
 
@@ -207,11 +207,11 @@ namespace Asteroids
 
         #endregion
 
-        #region Converstion Methods (GetLaserForCollision, ConvertLaserLine2D, ConvertAngleDegrees)
+        #region Converstion Methods (GetRocksForCollision, ConvertRocksLine2D, ConvertAngleDegrees)
 
-        public LinkedList<Vector2> GetLaserForCollision()
+        public LinkedList<Vector2> GetRocksForCollision()
         {
-            LinkedList<Vector2> lineList = GetLaser();
+            LinkedList<Vector2> lineList = GetRocks();
 
             LinkedList<Vector2> ll = new LinkedList<Vector2>();
 
@@ -231,9 +231,9 @@ namespace Asteroids
             return ll;
         }
 
-        public LinkedList<Line2D> ConvertLaserLine2D()
+        public LinkedList<Line2D> ConvertRocksLine2D()
         {
-            LinkedList<Vector2> land = GetLaserForCollision();
+            LinkedList<Vector2> land = GetRocksForCollision();
 
             LinkedList<Line2D> lines = new LinkedList<Line2D>();
 
