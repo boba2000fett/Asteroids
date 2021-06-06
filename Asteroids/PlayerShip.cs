@@ -197,6 +197,9 @@ namespace Asteroids
             {
                 gameEnded = true;
             }
+
+            CheckPosition();
+
             oldKeyboardState = newKeyboardState;
 
             base.Update(gameTime);
@@ -218,6 +221,8 @@ namespace Asteroids
             pb.Begin(PrimitiveType.LineList);
 
             DrawPlayerShip();
+
+            DrawRockCollision();
 
             pb.End();
 
@@ -241,6 +246,18 @@ namespace Asteroids
             #endregion
 
             base.Draw(gameTime);
+        }
+
+        public void DrawRockCollision()
+        {
+            LinkedList<Line2D> collision = ConvertLanderLine2D();
+            foreach (Line2D line in collision)
+            {
+                pb.AddVertex(new Vector2(line.StartX, line.StartY), Color.Coral);
+                pb.AddVertex(new Vector2(line.EndX, line.EndY), Color.Coral);
+
+
+            }
         }
 
         #endregion
@@ -553,12 +570,12 @@ namespace Asteroids
             foreach (Vector2 v in lineList)
             {
                 float Xrotated = center.X + (v.X - center.X) *
-                  (float)Math.Cos(angle) - (v.Y - center.Y) *
-                  (float)Math.Sin(angle);
+                  (float)Math.Cos(rotation) - (v.Y - center.Y) *
+                  (float)Math.Sin(rotation);
 
                 float Yrotated = center.Y + (v.X - center.X) *
-                  (float)Math.Sin(angle) + (v.Y - center.Y) *
-                  (float)Math.Cos(angle);
+                  (float)Math.Sin(rotation) + (v.Y - center.Y) *
+                  (float)Math.Cos(rotation);
 
                 ll.AddLast(new Vector2(position.X + (Xrotated * scale),
                   position.Y + (Yrotated * scale)));
@@ -754,6 +771,8 @@ namespace Asteroids
                     {
                         rotation += 0.1f;
                     }
+
+
                 }
 
                 #endregion
@@ -815,5 +834,26 @@ namespace Asteroids
         }
 
         #endregion
+
+        public void CheckPosition()
+        {
+            if (position.X > StateManager.GraphicsDevice.Viewport.Width)
+            {
+                position.X = 0;
+            }
+            if (position.X < 0)
+            {
+                position.X = StateManager.GraphicsDevice.Viewport.Width;
+            }
+            if (position.Y > StateManager.GraphicsDevice.Viewport.Height)
+            {
+                position.Y = 0;
+            }
+            if (position.Y < 0)
+            {
+                position.Y = StateManager.GraphicsDevice.Viewport.Height;
+            }
+        }
+
     }
 }

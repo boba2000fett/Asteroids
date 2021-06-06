@@ -56,10 +56,10 @@ namespace MyLibrary
             // In order to avoid a division by zero error we will slightly slant any
             // perfectly vertical or horizontal lines.  This may make the intersection
             // detection too eager when dealing with long close together parrallel lines.
-            if (ax == bx) ax += .01f;
-            if (cx == dx) cx += .01f;
-            if (ay == by) ay += .01f;
-            if (cy == dy) cy += .01f;
+            if (ax == bx) ax += .0000000001f;
+            if (cx == dx) cx += .0000000001f;
+            if (ay == by) ay += .0000000001f;
+            if (cy == dy) cy += .0000000001f;
 
             r = (((ay - cy) * (dx - cx)) - ((ax - cx) * (dy - cy))) /
                 (((bx - ax) * (dy - cy)) - ((by - ay) * (dx - cx)));

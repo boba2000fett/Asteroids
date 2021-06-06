@@ -49,7 +49,7 @@ namespace Asteroids
         public float thrustPower;
         public float thrustPowerIncrement;
 
-        const float MAX_THRUST_POWER = 10.0f;
+        const float MAX_THRUST_POWER = 7.0f;
         #endregion
 
         #region Game State Variables
@@ -73,7 +73,7 @@ namespace Asteroids
         float xInitialPos;
         float yInitialPos;
 
-        public readonly bool typeOfLaser;
+        public readonly bool playerLaser;
 
         #endregion
 
@@ -85,7 +85,7 @@ namespace Asteroids
             pb = new PrimitiveBatch(game.GraphicsDevice);
             xInitialPos = xPosition;
             yInitialPos = yPosition;
-            typeOfLaser = type;
+            playerLaser = type;
             rotation = trajectory;
         }
 
@@ -100,7 +100,7 @@ namespace Asteroids
             oldPosition = position;
             newPosition = position;
 
-            scale = 1.5f;
+            scale = 2f;
 
             center = new Vector2(1, 1);
 
@@ -136,7 +136,12 @@ namespace Asteroids
 
             RecalculatePosition(gameTime);
 
-            Console.WriteLine($"Laser: PositionX {position.X} PositionY {position.Y}");
+            CheckPosition();
+
+            //Console.WriteLine($"Laser: PositionX {position.X} PositionY {position.Y}");
+
+            elapsedTime += gameTime.ElapsedGameTime;
+
 
             base.Update(gameTime);
         }
@@ -149,10 +154,24 @@ namespace Asteroids
 
             DrawLaser();
 
+            DrawLaserCollision();
+
             pb.End();
 
-
             base.Draw(gameTime);
+        }
+
+
+        public void DrawLaserCollision()
+        {
+            LinkedList<Line2D> collision = ConvertLaserLine2D();
+            foreach (Line2D line in collision)
+            {
+                pb.AddVertex(new Vector2(line.StartX, line.StartY), Color.Coral);
+                pb.AddVertex(new Vector2(line.EndX, line.EndY), Color.Coral);
+
+
+            }
         }
 
         #endregion
@@ -219,12 +238,12 @@ namespace Asteroids
             foreach (Vector2 v in lineList)
             {
                 float Xrotated = center.X + (v.X - center.X) *
-                  (float)Math.Cos(angle) - (v.Y - center.Y) *
-                  (float)Math.Sin(angle);
+                  (float)Math.Cos(rotation) - (v.Y - center.Y) *
+                  (float)Math.Sin(rotation);
 
                 float Yrotated = center.Y + (v.X - center.X) *
-                  (float)Math.Sin(angle) + (v.Y - center.Y) *
-                  (float)Math.Cos(angle);
+                  (float)Math.Sin(rotation) + (v.Y - center.Y) *
+                  (float)Math.Cos(rotation);
 
                 ll.AddLast(new Vector2(position.X + (Xrotated * scale),
                   position.Y + (Yrotated * scale)));
@@ -315,5 +334,40 @@ namespace Asteroids
         }
 
         #endregion
+
+
+        public void CheckPosition()
+        {
+            if (position.X > StateManager.GraphicsDevice.Viewport.Width)
+            {
+                position.X = 0;
+            }
+            if (position.X < 0)
+            {
+                position.X = StateManager.GraphicsDevice.Viewport.Width;
+            }
+            if (position.Y > StateManager.GraphicsDevice.Viewport.Height)
+            {
+                position.Y = 0;
+            }
+            if (position.Y < 0)
+            {
+                position.Y = StateManager.GraphicsDevice.Viewport.Height;
+            }
+        }
+
+        public bool CheckLaser()
+        {
+            
+            if (elapsedTime > TimeSpan.FromSeconds(1))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

@@ -1,602 +1,148 @@
 ﻿'Asteroids.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\Asteroids.exe'. Symbols loaded.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\MonoGame.Framework.dll'. Module was built without symbols.
+'Asteroids.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Asteroids.exe'. Symbols loaded.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\MonoGame.Framework.dll'. Module was built without symbols.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XAudio2.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.DXGI.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XAudio2.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.DXGI.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XInput.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\MyLibrary.dll'. Symbols loaded.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XInput.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\MyLibrary.dll'. Symbols loaded.
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.InteropServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.InteropServices.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0__________________________________________________
-PLAYERSHIP rotation 0.1__________________________________________________
-PLAYERSHIP rotation 0.2__________________________________________________
-PLAYERSHIP rotation 0.3__________________________________________________
-PLAYERSHIP rotation 0.4__________________________________________________
-PLAYERSHIP rotation 0.5__________________________________________________
-PLAYERSHIP rotation 0.6__________________________________________________
-PLAYERSHIP rotation 0.7__________________________________________________
-PLAYERSHIP rotation 0.8000001__________________________________________________
-PLAYERSHIP rotation 0.9000001__________________________________________________
-PLAYERSHIP rotation 1__________________________________________________
-PLAYERSHIP rotation 1.1__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-PLAYERSHIP rotation 1.2__________________________________________________
-playerShip1.rotation: 1.2
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 132
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 129
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 126
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 123
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 120
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 117
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 114
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 111
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 108
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 105
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 102
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 99
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 96
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 93
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 90
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 87
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 84
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 81
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 78
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 75
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 72
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 69
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 66
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 63
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 60
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 57
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 54
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 51
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 48
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 45
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 42
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 39
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 36
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 33
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 30
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 27
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 24
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 21
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 18
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 15
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 12
-PLAYERSHIP rotation 1.2__________________________________________________
-Laser: PositionX 50 PositionY 9
-PLAYERSHIP rotation 1.3__________________________________________________
-Laser: PositionX 50 PositionY 6
-PLAYERSHIP rotation 1.4__________________________________________________
-Laser: PositionX 50 PositionY 3
-PLAYERSHIP rotation 1.5__________________________________________________
-Laser: PositionX 50 PositionY 0
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -3
-PLAYERSHIP rotation 1.7__________________________________________________
-Laser: PositionX 50 PositionY -6
-PLAYERSHIP rotation 1.8__________________________________________________
-Laser: PositionX 50 PositionY -9
-PLAYERSHIP rotation 1.9__________________________________________________
-Laser: PositionX 50 PositionY -12
-PLAYERSHIP rotation 2__________________________________________________
-Laser: PositionX 50 PositionY -15
-PLAYERSHIP rotation 2.1__________________________________________________
-Laser: PositionX 50 PositionY -18
-PLAYERSHIP rotation 2.2__________________________________________________
-Laser: PositionX 50 PositionY -21
-PLAYERSHIP rotation 2.3__________________________________________________
-Laser: PositionX 50 PositionY -24
-PLAYERSHIP rotation 2.4__________________________________________________
-Laser: PositionX 50 PositionY -27
-PLAYERSHIP rotation 2.5__________________________________________________
-Laser: PositionX 50 PositionY -30
-PLAYERSHIP rotation 2.6__________________________________________________
-Laser: PositionX 50 PositionY -33
-PLAYERSHIP rotation 2.7__________________________________________________
-Laser: PositionX 50 PositionY -36
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -39
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -42
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -45
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -48
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -51
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -54
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -57
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -60
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -63
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -66
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -69
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -72
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -75
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -78
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -81
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -84
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -87
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -90
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -93
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -96
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -99
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -102
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -105
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -108
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -111
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -114
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -117
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -120
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -123
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -126
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -129
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -132
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -135
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -138
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -141
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -144
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -147
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -150
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -153
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -156
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -159
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -162
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -165
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -168
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -171
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -174
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -177
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -180
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -183
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -186
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -189
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -192
-playerShip1.rotation: 2.799999
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -195
-Laser: PositionX 84.67135 PositionY 229.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -198
-Laser: PositionX 84.67135 PositionY 226.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -201
-Laser: PositionX 84.67135 PositionY 223.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -204
-Laser: PositionX 84.67135 PositionY 220.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -207
-Laser: PositionX 84.67135 PositionY 217.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -210
-Laser: PositionX 84.67135 PositionY 214.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -213
-Laser: PositionX 84.67135 PositionY 211.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -216
-Laser: PositionX 84.67135 PositionY 208.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -219
-Laser: PositionX 84.67135 PositionY 205.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -222
-Laser: PositionX 84.67135 PositionY 202.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -225
-Laser: PositionX 84.67135 PositionY 199.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -228
-Laser: PositionX 84.67135 PositionY 196.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -231
-Laser: PositionX 84.67135 PositionY 193.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -234
-Laser: PositionX 84.67135 PositionY 190.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -237
-Laser: PositionX 84.67135 PositionY 187.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -240
-Laser: PositionX 84.67135 PositionY 184.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -243
-Laser: PositionX 84.67135 PositionY 181.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -246
-Laser: PositionX 84.67135 PositionY 178.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -249
-Laser: PositionX 84.67135 PositionY 175.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -252
-Laser: PositionX 84.67135 PositionY 172.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -255
-Laser: PositionX 84.67135 PositionY 169.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -258
-Laser: PositionX 84.67135 PositionY 166.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -261
-Laser: PositionX 84.67135 PositionY 163.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -264
-Laser: PositionX 84.67135 PositionY 160.5199
-PLAYERSHIP rotation 2.799999__________________________________________________
-Laser: PositionX 50 PositionY -267
-Laser: PositionX 84.67135 PositionY 157.5199
-PLAYERSHIP rotation 2.7__________________________________________________
-Laser: PositionX 50 PositionY -270
-Laser: PositionX 84.67135 PositionY 154.5199
-PLAYERSHIP rotation 2.6__________________________________________________
-Laser: PositionX 50 PositionY -273
-Laser: PositionX 84.67135 PositionY 151.5199
-PLAYERSHIP rotation 2.5__________________________________________________
-Laser: PositionX 50 PositionY -276
-Laser: PositionX 84.67135 PositionY 148.5199
-PLAYERSHIP rotation 2.4__________________________________________________
-Laser: PositionX 50 PositionY -279
-Laser: PositionX 84.67135 PositionY 145.5199
-PLAYERSHIP rotation 2.3__________________________________________________
-Laser: PositionX 50 PositionY -282
-Laser: PositionX 84.67135 PositionY 142.5199
-PLAYERSHIP rotation 2.2__________________________________________________
-Laser: PositionX 50 PositionY -285
-Laser: PositionX 84.67135 PositionY 139.5199
-PLAYERSHIP rotation 2.1__________________________________________________
-Laser: PositionX 50 PositionY -288
-Laser: PositionX 84.67135 PositionY 136.5199
-PLAYERSHIP rotation 2__________________________________________________
-Laser: PositionX 50 PositionY -291
-Laser: PositionX 84.67135 PositionY 133.5199
-PLAYERSHIP rotation 1.9__________________________________________________
-Laser: PositionX 50 PositionY -294
-Laser: PositionX 84.67135 PositionY 130.5199
-PLAYERSHIP rotation 1.8__________________________________________________
-Laser: PositionX 50 PositionY -297
-Laser: PositionX 84.67135 PositionY 127.5199
-PLAYERSHIP rotation 1.7__________________________________________________
-Laser: PositionX 50 PositionY -300
-Laser: PositionX 84.67135 PositionY 124.5199
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -303
-Laser: PositionX 84.67135 PositionY 121.5199
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -306
-Laser: PositionX 84.67135 PositionY 118.5199
-playerShip1.rotation: 1.6
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -309
-Laser: PositionX 84.67135 PositionY 115.5199
-Laser: PositionX 141.159 PositionY 318.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -312
-Laser: PositionX 84.67135 PositionY 112.5199
-Laser: PositionX 141.159 PositionY 315.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -315
-Laser: PositionX 84.67135 PositionY 109.5199
-Laser: PositionX 141.159 PositionY 312.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -318
-Laser: PositionX 84.67135 PositionY 106.5199
-Laser: PositionX 141.159 PositionY 309.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -321
-Laser: PositionX 84.67135 PositionY 103.5199
-Laser: PositionX 141.159 PositionY 306.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -324
-Laser: PositionX 84.67135 PositionY 100.5199
-Laser: PositionX 141.159 PositionY 303.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -327
-Laser: PositionX 84.67135 PositionY 97.51988
-Laser: PositionX 141.159 PositionY 300.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -330
-Laser: PositionX 84.67135 PositionY 94.51988
-Laser: PositionX 141.159 PositionY 297.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -333
-Laser: PositionX 84.67135 PositionY 91.51988
-Laser: PositionX 141.159 PositionY 294.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -336
-Laser: PositionX 84.67135 PositionY 88.51988
-Laser: PositionX 141.159 PositionY 291.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -339
-Laser: PositionX 84.67135 PositionY 85.51988
-Laser: PositionX 141.159 PositionY 288.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -342
-Laser: PositionX 84.67135 PositionY 82.51988
-Laser: PositionX 141.159 PositionY 285.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -345
-Laser: PositionX 84.67135 PositionY 79.51988
-Laser: PositionX 141.159 PositionY 282.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -348
-Laser: PositionX 84.67135 PositionY 76.51988
-Laser: PositionX 141.159 PositionY 279.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -351
-Laser: PositionX 84.67135 PositionY 73.51988
-Laser: PositionX 141.159 PositionY 276.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -354
-Laser: PositionX 84.67135 PositionY 70.51988
-Laser: PositionX 141.159 PositionY 273.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -357
-Laser: PositionX 84.67135 PositionY 67.51988
-Laser: PositionX 141.159 PositionY 270.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -360
-Laser: PositionX 84.67135 PositionY 64.51988
-Laser: PositionX 141.159 PositionY 267.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -363
-Laser: PositionX 84.67135 PositionY 61.51988
-Laser: PositionX 141.159 PositionY 264.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -366
-Laser: PositionX 84.67135 PositionY 58.51988
-Laser: PositionX 141.159 PositionY 261.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -369
-Laser: PositionX 84.67135 PositionY 55.51988
-Laser: PositionX 141.159 PositionY 258.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -372
-Laser: PositionX 84.67135 PositionY 52.51988
-Laser: PositionX 141.159 PositionY 255.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -375
-Laser: PositionX 84.67135 PositionY 49.51988
-Laser: PositionX 141.159 PositionY 252.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -378
-Laser: PositionX 84.67135 PositionY 46.51988
-Laser: PositionX 141.159 PositionY 249.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -381
-Laser: PositionX 84.67135 PositionY 43.51988
-Laser: PositionX 141.159 PositionY 246.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -384
-Laser: PositionX 84.67135 PositionY 40.51988
-Laser: PositionX 141.159 PositionY 243.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -387
-Laser: PositionX 84.67135 PositionY 37.51988
-Laser: PositionX 141.159 PositionY 240.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -390
-Laser: PositionX 84.67135 PositionY 34.51988
-Laser: PositionX 141.159 PositionY 237.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -393
-Laser: PositionX 84.67135 PositionY 31.51988
-Laser: PositionX 141.159 PositionY 234.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -396
-Laser: PositionX 84.67135 PositionY 28.51988
-Laser: PositionX 141.159 PositionY 231.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -399
-Laser: PositionX 84.67135 PositionY 25.51988
-Laser: PositionX 141.159 PositionY 228.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -402
-Laser: PositionX 84.67135 PositionY 22.51988
-Laser: PositionX 141.159 PositionY 225.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -405
-Laser: PositionX 84.67135 PositionY 19.51988
-Laser: PositionX 141.159 PositionY 222.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -408
-Laser: PositionX 84.67135 PositionY 16.51988
-Laser: PositionX 141.159 PositionY 219.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -411
-Laser: PositionX 84.67135 PositionY 13.51988
-Laser: PositionX 141.159 PositionY 216.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -414
-Laser: PositionX 84.67135 PositionY 10.51988
-Laser: PositionX 141.159 PositionY 213.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -417
-Laser: PositionX 84.67135 PositionY 7.519882
-Laser: PositionX 141.159 PositionY 210.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -420
-Laser: PositionX 84.67135 PositionY 4.519882
-Laser: PositionX 141.159 PositionY 207.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -423
-Laser: PositionX 84.67135 PositionY 1.519882
-Laser: PositionX 141.159 PositionY 204.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -426
-Laser: PositionX 84.67135 PositionY -1.480118
-Laser: PositionX 141.159 PositionY 201.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -429
-Laser: PositionX 84.67135 PositionY -4.480118
-Laser: PositionX 141.159 PositionY 198.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -432
-Laser: PositionX 84.67135 PositionY -7.480118
-Laser: PositionX 141.159 PositionY 195.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -435
-Laser: PositionX 84.67135 PositionY -10.48012
-Laser: PositionX 141.159 PositionY 192.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -438
-Laser: PositionX 84.67135 PositionY -13.48012
-Laser: PositionX 141.159 PositionY 189.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -441
-Laser: PositionX 84.67135 PositionY -16.48012
-Laser: PositionX 141.159 PositionY 186.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -444
-Laser: PositionX 84.67135 PositionY -19.48012
-Laser: PositionX 141.159 PositionY 183.8254
-PLAYERSHIP rotation 1.6__________________________________________________
-Laser: PositionX 50 PositionY -447
-Laser: PositionX 84.67135 PositionY -22.48012
-Laser: PositionX 141.159 PositionY 180.8254
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-The thread 0x5c88 has exited with code 0 (0x0).
-The program '[22936] Asteroids.exe' has exited with code 0 (0x0).
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
+Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
+Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The thread 0x4c20 has exited with code 0 (0x0).
+The program '[9188] Asteroids.exe' has exited with code 0 (0x0).

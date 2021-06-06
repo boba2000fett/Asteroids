@@ -1,0 +1,158 @@
+﻿public void CheckCollisionRocks(LinkedList<Line2D> land)
+        {
+            //Check Collision between Rocks and PlayerShip
+            LinkedList<Line2D> rockCollision = new LinkedList<Line2D>();
+            foreach (Rocks r in tempActiveRocks)
+            { 
+                rockCollision = r.ConvertRocksLine2D();
+                foreach (Line2D l1 in rockCollision)
+                {
+                    foreach (Line2D l2 in playerShip1List)
+                    {
+                        if (Line2D.Intersects(l1, l2))
+                        {
+                            playerShip1.CrashShip();
+                            return;
+                        }
+                    }
+                }
+            }
+
+            //Check Collision between EnemyShip and Player
+            LinkedList<Line2D> enemyShipCollision = new LinkedList<Line2D>();
+            foreach (EnemyShip e in activeEnemyShips)
+            {
+                //enemyShipCollision = e.ConvertEnemyShipLine2D();
+                foreach (Line2D l1 in enemyShipCollision)
+                {
+                    foreach (Line2D l2 in playerShip1List)
+                    {
+                        if (Line2D.Intersects(l1, l2))
+                        {
+                            playerShip1.CrashShip();
+                            return;
+                        }
+                    }
+                }
+            }
+
+
+            LinkedList<Line2D> laserCollision = new LinkedList<Line2D>();
+            foreach (Laser l in activeLasers)
+            {
+                if (l.CheckLaser() == true) //Make a check in Laser so that the laser can only run for 5 seconds.
+                {
+                    activeLasers.Remove(l);
+                    return;
+                    //remove l from activeLasers
+                    //return/break; (Break from the loop)
+                                         
+                }
+                laserCollision = l.ConvertLaserLine2D();
+
+                foreach (EnemyShip e in activeEnemyShips)
+                {
+                    //enemyShipCollision = e.ConvertEnemyShipLine2D();
+                    foreach (Line2D l1 in laserCollision)
+                    {
+                        foreach (Line2D l2 in enemyShipCollision)
+                        {
+                            if (Line2D.Intersects(l1, l2) && l.playerLaser)
+                            {
+                                //e.DestroyShip();
+                                //Remove e from activeEnemyShips LinkedList
+                                activeEnemyShips.Remove(e);
+                                         //return;
+                            }
+                        }
+                    }
+                }
+
+                foreach (Rocks rock in tempActiveRocks)
+                {
+                    Random rand = new Random();
+                    rockCollision = rock.ConvertRocksLine2D();
+                    int side1 = CheckAngle(rock.rotation, 1);
+                    int side2 = CheckAngle(rock.rotation, 2);
+                    int side3 = CheckAngle(rock.rotation, 3);
+                    int side4 = CheckAngle(rock.rotation, 4);
+                    Rocks rockTemp;
+
+                    foreach (Line2D l1 in laserCollision)
+                    {
+                        foreach (Line2D l2 in rockCollision)
+                        {
+                            if (Line2D.Intersects(l1, l2) && l.playerLaser)
+                            {
+                                if (rock.size > 1)
+                                {
+                                    rockTemp = rock;
+                                    int size1 = rand.Next(1, 3);
+                                    int size2 = rand.Next(1, 3);
+                                    if (side1 == 1)
+                                    {
+                                        
+                                        //float rockRotation, int rockSize, float xPosition, float yPosition, int type, Game game  
+                                        Rocks newRock1 = new Rocks((float)(rock.rotation - (45 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock1.Initialize();
+                                        tempActiveRocks.AddLast(newRock1);
+                                        Rocks newRock2 = new Rocks((float)(rock.rotation + (45 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock2.Initialize();
+                                        tempActiveRocks.AddLast(newRock2);
+                                        tempActiveRocks.Remove(rock);
+                                    }
+                                    else if (side2 == 2)
+                                    {
+                                        Rocks newRock1 = new Rocks((float)(rock.rotation + (45 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock1.Initialize();
+                                        tempActiveRocks.AddLast(newRock1);
+                                        Rocks newRock2 = new Rocks((float)(rock.rotation + (135 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock2.Initialize();
+                                        tempActiveRocks.AddLast(newRock2);
+                                        tempActiveRocks.Remove(rock);
+                                    }
+                                    else if (side3 == 3)
+                                    {
+                                        Rocks newRock1 = new Rocks((float)(rock.rotation + (135 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock1.Initialize();
+                                        tempActiveRocks.AddLast(newRock1);
+                                        Rocks newRock2 = new Rocks((float)(rock.rotation - (135 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock2.Initialize();
+                                        tempActiveRocks.AddLast(newRock2);
+                                        tempActiveRocks.Remove(rock);
+                                    }
+                                    else if (side4 == 4)
+                                    {
+                                        Rocks newRock1 = new Rocks((float)(rock.rotation - (135 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock1.Initialize();
+                                        tempActiveRocks.AddLast(newRock1);
+                                        Rocks newRock2 = new Rocks((float)(rock.rotation - (45 * (Math.PI) / 180)), rock.size - 1, rock.position.X, rock.position.Y, size1, StateManager.Game);
+                                        newRock2.Initialize();
+                                        tempActiveRocks.AddLast(newRock2);
+                                        tempActiveRocks.Remove(rock);
+                                    }
+                                    else
+                                    {
+                                        tempActiveRocks.Remove(rock);
+                                        //    Remove R component.
+                                        //Remove R from tempActiveRocks.
+                                    }
+                                    //return;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                foreach (Line2D l1 in laserCollision)
+                {
+                    foreach (Line2D l2 in playerShip1List)
+                    {
+                        if (Line2D.Intersects(l1, l2) && !l.playerLaser)
+                        {
+                            playerShip1.CrashShip();
+                        }
+                    }
+                }
+                return;
+            }

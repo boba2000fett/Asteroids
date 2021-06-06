@@ -48,9 +48,12 @@ namespace Asteroids
         /// </summary>
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = 1280;
+            //graphics.PreferredBackBufferWidth = 1280;
+            //graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 2560;
             graphics.PreferredBackBufferHeight = 720;
-            graphics.ApplyChanges();
+            //graphics.ToggleFullScreen();
+            //graphics.ApplyChanges();
 
             screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -92,9 +95,9 @@ namespace Asteroids
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            //        Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+                    Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
 
             screen.Update(gameTime);
 
