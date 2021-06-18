@@ -28,6 +28,8 @@ namespace Asteroids
         int screenWidth;
         int screenHeight;
 
+        HighScore highScoreObject;
+
         #endregion
 
         #region Constructor
@@ -63,7 +65,9 @@ namespace Asteroids
                 (screenHeight - graphics.PreferredBackBufferHeight - 32) / 2);
 
             screen = new StateManager(this);
-            screen.Push(new Screens.AttractScreen(new HighScore()));
+            highScoreObject = new HighScore(StateManager.Game);
+            highScoreObject.active = false;
+            screen.Push(new Screens.AttractScreen(highScoreObject));
 
             base.Initialize();
         }

@@ -19,6 +19,13 @@
 /processorParam:Quality=Best
 /build:explosion.wav
 
+#begin font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:font.spritefont
+
 #begin success.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

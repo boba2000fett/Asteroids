@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/explosion.wav","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/explosion.xnb","SoundEffectProcessor","SoundEffectContent",247852,247913,0.2082397
+"C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/font.spritefont","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/font.xnb","FontDescriptionProcessor","SpriteFontContent",2018,529425,0.5868899
 "C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/success.wav","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/success.xnb","SoundEffectProcessor","SoundEffectContent",98348,98409,0.1284759
 "C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/thrust.wav","C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/Content/thrust.xnb","SoundEffectProcessor","SoundEffectContent",94128,94189,0.1108225

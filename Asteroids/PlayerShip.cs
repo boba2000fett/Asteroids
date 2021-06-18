@@ -81,7 +81,7 @@ namespace Asteroids
 
         int explosionCounter;
 
-        bool gameEnded;
+        public bool gameEnded;
 
         #endregion 
 
@@ -136,7 +136,7 @@ namespace Asteroids
 
             playerShip = GetPlayerShip();
 
-            lives = 2;
+            lives = 3;
 
             elapsedTime = TimeSpan.Zero;
             gravityTime = TimeSpan.Zero;
@@ -176,7 +176,7 @@ namespace Asteroids
 
         public override void Update(GameTime gameTime)
         {
-            if (!crashed)
+            if (!crashed && !gameEnded)
             {
                 VelocityCalculation();
 
@@ -186,12 +186,16 @@ namespace Asteroids
 
                 RecalculatePosition(gameTime);
             }
-            else
+            else if (crashed && !gameEnded)
             {
                 playerShip = GetPlayerShip();
 
                 CheckInput(gameTime);
             }
+            //else
+            //{
+
+            //}
 
             if (lives <= 0)
             {
@@ -209,7 +213,7 @@ namespace Asteroids
         {
             GraphicsDevice.Clear(Color.TransparentBlack);
 
-            if (crashed)
+            if (gameEnded)
             {
                 GraphicsDevice.Clear(Color.Red);
             }           
@@ -224,6 +228,8 @@ namespace Asteroids
 
             DrawRockCollision();
 
+            DisplayLives();
+
             pb.End();
 
             #region User Interface
@@ -231,14 +237,13 @@ namespace Asteroids
             DisplayTitle();
             DisplayAngle();            
             DisplayScore();
-            
 
 
             if (crashed && !gameEnded)
             {
                 DisplayCrashed();
             }
-            if (gameEnded)
+            else if (gameEnded)
             {
                 DisplayGameOver();
             }
@@ -532,7 +537,7 @@ namespace Asteroids
         public void DisplayGameOver()
         {
             Color colour = Color.White;
-            string text = "Out of Fuel";
+            string text = "Lost all Lives";
             float px = (float)(
                 (StateManager.GraphicsDevice.Viewport.Width / 2) -
                 ((Font.TextWidth(uiScale, text)) / 2));
@@ -549,13 +554,59 @@ namespace Asteroids
             py += 50;
             Font.WriteText(pb, px, py, uiScale, colour, text);
 
-            text = "Press ESC To Exit";
-            px = (float)(
-                (StateManager.GraphicsDevice.Viewport.Width / 2) -
-                ((Font.TextWidth(uiScale, text)) / 2));
-            py += 50;
-            Font.WriteText(pb, px, py, uiScale, colour, text);
+            
+            //text = "Press ESC To Exit";
+            //px = (float)(
+            //    (StateManager.GraphicsDevice.Viewport.Width / 2) -
+            //    ((Font.TextWidth(uiScale, text)) / 2));
+            //py += 50;
+            //Font.WriteText(pb, px, py, uiScale, colour, text);
+
         }
+
+        public void DisplayLives()
+        {
+            Color colour = Color.White;
+            string text;
+            float px = 20;
+            float py = 20;
+            LinkedList<Vector2> lineList = GetPlayerShip();
+
+
+
+            //text = "Press ESC To Exit";
+            //px = (float)(
+            //    (StateManager.GraphicsDevice.Viewport.Width / 2) -
+            //    ((Font.TextWidth(uiScale, text)) / 2));
+            //py += 50;
+            //Font.WriteText(pb, px, py, uiScale, colour, text);
+
+            for (int i = 1; i <= lives; i++)
+            {
+                foreach (Vector2 v2 in lineList)
+                {                    
+                    float rotate = 0;
+                    Vector2 lifePosition = new Vector2(px, py);
+
+                    float Xrotated = center.X + (v2.X - center.X) *
+                        (float)Math.Cos(rotate) - (v2.Y - center.Y) *
+                        (float)Math.Sin(rotate);
+
+                    float Yrotated = center.Y + (v2.X - center.X) *
+                        (float)Math.Sin(rotate) + (v2.Y - center.Y) *
+                        (float)Math.Cos(rotate);
+
+                    pb.AddVertex(new Vector2(lifePosition.X + (Xrotated * 3f),
+                        lifePosition.Y + (Yrotated * 3f)), colour);
+
+                    
+                }
+                px += 40;
+
+            }
+
+        }
+
 
         #endregion
 
@@ -637,13 +688,15 @@ namespace Asteroids
 
         public void CrashShip()
         {
+            if(!crashed)
+                Lives--;
+
+
             crashed = true;
 
             thrustPower = 0.0f;
             velocity = 0;
             explosionCounter = 0;
-
-            Lives--;
 
             var instance = soundEffects[0].CreateInstance();
             if (instance.State != SoundState.Playing)
@@ -696,7 +749,7 @@ namespace Asteroids
 
             newKeyboardState = Keyboard.GetState();
 
-            if (!crashed)
+            if (!crashed && !gameEnded)
             {
                 #region Input when Ship is Not Crashed
 
@@ -779,18 +832,18 @@ namespace Asteroids
 
                 #endregion
             }
-            else
+            else if(crashed && !gameEnded)
             {
-                #region Input when Ship IS Crashed
+                #region Input when Ship IS Crashed but there are still Lives
 
-                if (newKeyboardState.IsKeyDown(Keys.Enter) && !gameEnded)
+                if (newKeyboardState.IsKeyDown(Keys.J))
                 {
-                    position = new Vector2(50, 135);
+                    //position = new Vector2(50, 135);
 
-                    oldPosition = position;
-                    newPosition = position;
+                    //oldPosition = position;
+                    //newPosition = position;
 
-                    rotation = 0;
+                    //rotation = 0;
                     crashed = false;
 
                 }

@@ -5,10 +5,12 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/explosion.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/font.spritefont</File>
     <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/success.wav</File>
     <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/thrust.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

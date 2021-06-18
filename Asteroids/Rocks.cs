@@ -48,7 +48,7 @@ namespace Asteroids
         public float thrustPower;
         public float thrustPowerIncrement;
 
-        public float MAX_THRUST_POWER = 3f;//Remake this into a cosnt
+        public float MAX_THRUST_POWER = 1f;//Remake this into a cosnt
         #endregion
 
         #region Game State Variables
@@ -76,6 +76,9 @@ namespace Asteroids
         public int size;
 
         #endregion
+
+        public int score;
+
 
         #endregion
 
@@ -115,12 +118,20 @@ namespace Asteroids
             oldPosition = position;
             newPosition = position;
             if (size == 3)
+            {
                 scale = 5f;
+                score = 20;
+            }
             else if (size == 2)
+            {
                 scale = 4f;
+                score = 10;
+            }
             else if (size == 1)
-                scale = 2f;
-
+            {
+                scale = 3f;
+                score = 5;
+            }
             center = new Vector2(1, 1);
 
             //rotation = 0;
@@ -394,6 +405,13 @@ namespace Asteroids
 
             list.AddLast(new Vector2(0 * scale, 3 * scale));
             list.AddLast(new Vector2(0 * scale, 0 * scale));
+
+            list.AddLast(new Vector2(1 * scale, 3 * scale));
+            list.AddLast(new Vector2(1 * scale, 0 * scale));
+
+            list.AddLast(new Vector2(2 * scale, 3 * scale));
+            list.AddLast(new Vector2(2 * scale, 0 * scale));
+            
 
             return list;
         }

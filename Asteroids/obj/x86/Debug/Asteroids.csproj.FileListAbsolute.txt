@@ -27,6 +27,7 @@ C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\Conten
 C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\success.xnb
 C:\Users\trent\Desktop\Programs\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\thrust.xnb
 C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\explosion.xnb
+C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\font.xnb
 C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\success.xnb
 C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\thrust.xnb
 C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Asteroids.exe

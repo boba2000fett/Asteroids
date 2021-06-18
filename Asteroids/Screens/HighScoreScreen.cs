@@ -48,11 +48,13 @@ namespace Asteroids.Screens
         {
             spriteBatch = new SpriteBatch(StateManager.GraphicsDevice);
             spriteFont = StateManager.Content.Load<SpriteFont>("font");
-            menuFont = StateManager.Content.Load<SpriteFont>("menu");
+            //menuFont = StateManager.Content.Load<SpriteFont>("menu");
 
-            StateManager.Game.Window.Title = "Lunar Lander";
+            //StateManager.Game.Window.Title = "Lunar Lander";
 
-            menuImage = StateManager.Content.Load<Texture2D>("ProgramBackground");
+            //menuImage = StateManager.Content.Load<Texture2D>("ProgramBackground");
+
+            //highScore.Initialize();
         }
 
         public override void Update(GameTime gameTime, StateManager screen, 
@@ -63,13 +65,16 @@ namespace Asteroids.Screens
             {
                 screen.Pop();
             }
+
+            highScore.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
+            highScore.Draw(gameTime);
             spriteBatch.Begin();
 
-            spriteBatch.Draw(menuImage, new Vector2(0, 0), Color.White);
+            //spriteBatch.Draw(menuImage, new Vector2(0, 0), Color.White);
 
             Vector2 center = new Vector2(
                 StateManager.GraphicsDevice.Viewport.Width / 2,
@@ -84,14 +89,14 @@ namespace Asteroids.Screens
             spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 150), Color.White);
 
             msg = "Programmed By:";
-            v = menuFont.MeasureString(msg) / new Vector2(2, 2);
+            v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
             buffer = center - v;
-            spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 350), Color.White);
+            spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 350), Color.White);
 
             msg = "Trenton Andrews";
-            v = menuFont.MeasureString(msg) / new Vector2(2, 2);
+            v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
             buffer = center - v;
-            spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 500), Color.White);
+            spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 500), Color.White);
 
             spriteBatch.End();
         }
