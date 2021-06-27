@@ -27,6 +27,8 @@ namespace Asteroids.Screens
 
         HighScore highScore;
 
+        
+
         #region Constructor
 
         public HighScoreScreen()
@@ -66,39 +68,53 @@ namespace Asteroids.Screens
                 screen.Pop();
             }
 
+            if(highScore.selection == false)
+            {
+                screen.Pop();
+                AttractScreen attract = new AttractScreen(highScore);
+                screen.Push(attract);
+            }
+            else
+            {
+                //Put Logic Here for Transitioning between this screen and the Attract Screen. 
+            }
+
+
             highScore.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
             highScore.Draw(gameTime);
-            spriteBatch.Begin();
+            //////spriteBatch.Begin();
 
-            //spriteBatch.Draw(menuImage, new Vector2(0, 0), Color.White);
+            ////////spriteBatch.Draw(menuImage, new Vector2(0, 0), Color.White);
 
-            Vector2 center = new Vector2(
-                StateManager.GraphicsDevice.Viewport.Width / 2,
-                StateManager.GraphicsDevice.Viewport.Height / 2);
+            //////Vector2 center = new Vector2(
+            //////    StateManager.GraphicsDevice.Viewport.Width / 2,
+            //////    StateManager.GraphicsDevice.Viewport.Height / 2);
 
-            string msg = "Credits";
+            //////string msg = "Credits";
 
-            Vector2 v = spriteFont.MeasureString(msg) / new Vector2(2,2);
+            //////Vector2 v = spriteFont.MeasureString(msg) / new Vector2(2,2);
 
-            Vector2 buffer = center - v;
+            //////Vector2 buffer = center - v;
             
-            spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 150), Color.White);
+            //////spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 150), Color.White);
 
-            msg = "Programmed By:";
-            v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
-            buffer = center - v;
-            spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 350), Color.White);
+            //////msg = "Programmed By:";
+            //////v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
+            //////buffer = center - v;
+            //////spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 350), Color.White);
 
-            msg = "Trenton Andrews";
-            v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
-            buffer = center - v;
-            spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 500), Color.White);
+            //////msg = "Trenton Andrews";
+            //////v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
+            //////buffer = center - v;
+            //////spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 500), Color.White);
 
-            spriteBatch.End();
+            //////spriteBatch.End();
+        
+        
         }
 
         #endregion

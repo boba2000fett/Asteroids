@@ -54,8 +54,14 @@ namespace Asteroids
             //graphics.PreferredBackBufferHeight = 720;
             graphics.PreferredBackBufferWidth = 2560;
             graphics.PreferredBackBufferHeight = 720;
+
+            graphics.PreferredBackBufferWidth = 10000;
+            graphics.PreferredBackBufferHeight = 4000;
+
             //graphics.ToggleFullScreen();
             //graphics.ApplyChanges();
+
+            Console.WriteLine($"graphics.PreferredBackBufferWidth {graphics.PreferredBackBufferWidth} graphics.PreferredBackBufferHeight {graphics.PreferredBackBufferHeight}");
 
             screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -64,9 +70,13 @@ namespace Asteroids
                 (screenWidth - graphics.PreferredBackBufferWidth) / 2,
                 (screenHeight - graphics.PreferredBackBufferHeight - 32) / 2);
 
+            this.Window.Position = new Point(0,0);
+
+
             screen = new StateManager(this);
             highScoreObject = new HighScore(StateManager.Game);
             highScoreObject.active = false;
+            highScoreObject.selection = false;
             screen.Push(new Screens.AttractScreen(highScoreObject));
 
             base.Initialize();

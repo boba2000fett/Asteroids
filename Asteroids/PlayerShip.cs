@@ -226,7 +226,7 @@ namespace Asteroids
 
             DrawPlayerShip();
 
-            DrawRockCollision();
+            //DrawRockCollision();
 
             DisplayLives();
 
@@ -569,7 +569,7 @@ namespace Asteroids
             Color colour = Color.White;
             string text;
             float px = 20;
-            float py = 20;
+            float py = StateManager.GraphicsDevice.Viewport.Height - 50;
             LinkedList<Vector2> lineList = GetPlayerShip();
 
 

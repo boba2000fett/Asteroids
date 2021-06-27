@@ -17,8 +17,11 @@ namespace Asteroids
 {
     public class HighScore : DrawableGameComponent
     {
-        private string[] names;
-        private int[] scores;
+        private string[] names =
+            {"TJA","TMB","WEH","MRH","JDR","MJJ","MJK","SAD","FUN","TTG" };
+        private int[] scores = 
+            {1000, 700, 500, 200, 100, 50, 20, 10, 0, 0 };
+
         private string name;
         public int score;
 
@@ -84,15 +87,17 @@ namespace Asteroids
         float angle, velocity, rotation;
 
 
-        char[] charArray = {
-        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
-            'r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'};
+        char[] charArray =
+            {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
+                'r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0'};
 
         StringBuilder nameString = new StringBuilder();
 
         int counter;
 
         public bool active;
+
+        public bool selection;
 
         public float Rotation
         {
@@ -112,8 +117,8 @@ namespace Asteroids
         {
             pb = new PrimitiveBatch(game.GraphicsDevice);
 
-            names = new string[10];
-            scores = new int[10];
+            //names = new string[10];
+            //scores = new int[10];
 
             //To Do: Maybe initalize everything to default values? So make default names with default scores.
 
@@ -129,7 +134,7 @@ namespace Asteroids
 
         public override void Draw(GameTime gameTime)
         {
-            if (active)
+            if (active || selection)
             {
                 DisplayAngle();
             }
@@ -137,7 +142,7 @@ namespace Asteroids
 
         public override void Update(GameTime gameTime)
         {
-            if (active)
+            if (selection)
             {
                 base.Update(gameTime);
                 newKeyboardState = Keyboard.GetState();
@@ -164,8 +169,24 @@ namespace Asteroids
                     if (newKeyboardState.IsKeyDown(Keys.Enter))
                     {
                         if (nameString.Length < 3)
+                        {
                             nameString.Append(charArray[counter]);
+                        }
+                        else
+                        {
+                            //ShiftScore(nameString.ToString(), score);
+                            //selection = false;
+                            //active = true;
+                        }
                     }
+                }
+
+
+                if (nameString.Length > 2)
+                {
+                    ShiftScore(nameString.ToString(), score);
+                    selection = false;
+                    active = true;
                 }
 
                 oldKeyboardState = newKeyboardState;
@@ -186,9 +207,10 @@ namespace Asteroids
             //Console.WriteLine();
             //Console.WriteLine();
 
+            Console.WriteLine(StateManager.GraphicsDevice.Viewport.AspectRatio);
 
-
-            uiScale = 2;
+            
+            uiScale = 1;
             Color colour = Color.White;
             float px = 10.0f;
             float py = 5 * (Font.TextHeight(uiScale));
@@ -205,63 +227,94 @@ namespace Asteroids
             text = "Score";
             Font.WriteText(pb, px, py, uiScale, colour, text);
             //scores.Length
-            for (int i = 0; i < scores.Length; i++)
+
+            if (selection)
             {
 
-                py = (25 + (i * 10)) * (Font.TextHeight(uiScale));
+                #region Selecting Name
+                int placeInScoreBoard = ReturnPlace();
 
-                px = 10.0f;
-                if (i == ReturnPlace())
+                for (int i = 0; i < scores.Length; i++)
                 {
-                    //if(nameString.Length > 0)
-                    //{
-                    //    foreach (char character in nameString.ToString())
-                    //    {
-                    //        text = $"{character}";
-                    //        Font.WriteText(pb, px, py, uiScale, colour, text);
-                    //        px += Font.TextWidth(uiScale, "A ");
-                    //        //px += 10;                         
-                    //        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                    //        Console.WriteLine($"px: {px}, Font.TextWidth(uiScale, character.ToString() {Font.TextWidth(uiScale, character.ToString())} ");
-                    //        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                    //    }
-                    //}
 
-                    //Console.WriteLine($"nameString.Length: {nameString.Length} | px: {px}");
-                    //text = $"{charArray[counter]}";
-                    //Font.WriteText(pb, px, py, uiScale, colour, text);
-                    if (nameString.Length < 3)
+                    py = (25 + (i * 10)) * (Font.TextHeight(uiScale));
+
+                    px = 10.0f;
+                    if (i == placeInScoreBoard)
                     {
-                        nameString.Append(charArray[counter]);
+                        if (nameString.Length < 3)
+                        {
+                            nameString.Append(charArray[counter]);
 
-                        int place = nameString.Length;
+                            int place = nameString.Length;
 
-                        text = nameString.ToString();
+                            text = nameString.ToString();
+                            Font.WriteText(pb, px, py, uiScale, colour, text);
+                            nameString.Remove(place - 1, 1);
+                        }
+                        else
+                        {
+                            text = nameString.ToString();
+                            Font.WriteText(pb, px, py, uiScale, colour, text);
+                        }
+                    }
+                    else if (i > placeInScoreBoard)
+                    {
+                        text = $"{names[i - 1]}";
                         Font.WriteText(pb, px, py, uiScale, colour, text);
-                        nameString.Remove(place - 1, 1);
-
                     }
                     else
                     {
-                        text = nameString.ToString();
+                        text = $"{names[i]}";
                         Font.WriteText(pb, px, py, uiScale, colour, text);
+                    }
 
+                    px = 150.0f;
+                    if (i == placeInScoreBoard)
+                    {
+                        text = $"{score}";
+                        Font.WriteText(pb, px, py, uiScale, colour, text);
+                    }
+                    else if (i > placeInScoreBoard)
+                    {
+                        text = $"{scores[i - 1]}";
+                        Font.WriteText(pb, px, py, uiScale, colour, text);
+                    }
+                    else
+                    {
+                        text = $"{scores[i]}";
+                        Font.WriteText(pb, px, py, uiScale, colour, text);
                     }
                 }
-                else
+
+                #endregion
+
+            }
+            else if (active)
+            {
+                #region Only Displaying High Score
+
+                for (int i = 0; i < scores.Length; i++)
                 {
-                    text = $"{i} {names[i]}";
+                    py = (25 + (i * 10)) * (Font.TextHeight(uiScale));
+
+                    px = 10.0f;
+                    text = $"{names[i]}";
                     Font.WriteText(pb, px, py, uiScale, colour, text);
 
+                    px = 150.0f;
+                    text = $"{scores[i]}";
+                    Font.WriteText(pb, px, py, uiScale, colour, text);
                 }
 
-
+                py = (25 + (10 * 10)) * (Font.TextHeight(uiScale));
+                py = 30;
                 px = 150.0f;
-                text = $"{scores[i]}";
+                text = $"Active";
                 Font.WriteText(pb, px, py, uiScale, colour, text);
+                
 
-                //Console.WriteLine($"py: {py}");
-
+                #endregion
             }
 
 
@@ -344,9 +397,11 @@ namespace Asteroids
 
         public void ShiftScore(string personName, int personScore)
         {
-            int temp;
+            int intTemp;
             int i;
             int counter = -1;
+
+            string stringTemp;
 
             //Do Loop to find where the new personScore replaces a spot at the High Score List (set this equal to counter)
             for (i = 0; i < scores.Length; i++)
@@ -360,10 +415,17 @@ namespace Asteroids
 
             for (i = counter; i < scores.Length; i++)
             {
-                temp = scores[i];
+                intTemp = scores[i];
                 scores[i] = personScore;
-                personScore = temp;
+                personScore = intTemp;
+
+                stringTemp = names[i];
+                names[i] = personName;
+                personName = stringTemp;
+
             }
+
+
 
         }
     }

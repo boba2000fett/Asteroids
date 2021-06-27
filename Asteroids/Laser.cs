@@ -154,7 +154,7 @@ namespace Asteroids
 
             DrawLaser();
 
-            DrawLaserCollision();
+            //DrawLaserCollision();
 
             pb.End();
 

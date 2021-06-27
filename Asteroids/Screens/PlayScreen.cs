@@ -78,24 +78,29 @@ namespace Asteroids.Screens
             Rocks rock1 = new Rocks(StateManager.Game, 600,50, (float)(Math.PI / 180), 1,3);
             rock1.Initialize();
             activeRocks.AddLast(rock1);
-            
-            //Rocks rock2 = new Rocks(StateManager.Game, 300, 300, (float)(135 * Math.PI / 180), 1, 3);
-            //rock2.Initialize();
-            //activeRocks.AddLast(rock2);
 
-            //Rocks rock3 = new Rocks(StateManager.Game, 0, 0, (float)(90 * Math.PI / 180), 1, 3);
-            //rock3.Initialize();
-            //activeRocks.AddLast(rock3);
+            Rocks rock2 = new Rocks(StateManager.Game, 300, 300, (float)(135 * Math.PI / 180), 1, 3);
+            rock2.Initialize();
+            activeRocks.AddLast(rock2);
 
-            //Rocks rock4= new Rocks(StateManager.Game, 400, 400, (float)(300* Math.PI / 180), 1, 3);
-            //rock4.Initialize();
-            //activeRocks.AddLast(rock4);
+            Rocks rock3 = new Rocks(StateManager.Game, 0, 0, (float)(90 * Math.PI / 180), 1, 3);
+            rock3.Initialize();
+            activeRocks.AddLast(rock3);
 
-            //Rocks rock5 = new Rocks(StateManager.Game, 10, 600, (float)(200 * Math.PI / 180), 1, 3);
-            //rock5.Initialize();
-            //activeRocks.AddLast(rock5);
+            Rocks rock4 = new Rocks(StateManager.Game, 400, 400, (float)(300 * Math.PI / 180), 1, 3);
+            rock4.Initialize();
+            activeRocks.AddLast(rock4);
+
+            Rocks rock5 = new Rocks(StateManager.Game, 10, 600, (float)(200 * Math.PI / 180), 1, 3);
+            rock5.Initialize();
+            activeRocks.AddLast(rock5);
+
+
 
             activeEnemyShips = new LinkedList<EnemyShip>();
+            EnemyShip enemyShip = new EnemyShip(StateManager.Game, 300, 300, (float)(135 * Math.PI / 180), 1, 3);
+            enemyShip.Initialize();
+            activeEnemyShips.AddLast(enemyShip);
         }
 
         public override void Update(GameTime gameTime, StateManager screen, 
@@ -162,7 +167,7 @@ namespace Asteroids.Screens
                 if (highScore.CheckScore(playerShip1.score))
                 {
                     highScore.score = playerShip1.score;
-                    highScore.active = true;
+                    highScore.selection = true;
                     screen.Pop();
                     HighScoreScreen highScoreScreen = new HighScoreScreen(highScore);
                     screen.Push(highScoreScreen);
@@ -197,7 +202,7 @@ namespace Asteroids.Screens
             {
                 foreach (EnemyShip e in activeEnemyShips)
                 {
-                    //e.Update(gameTime);
+                    e.Update(gameTime);
 
                 }
             }
@@ -263,7 +268,7 @@ namespace Asteroids.Screens
             {
                 foreach (EnemyShip e in activeEnemyShips)
                 {
-                    //e.Draw(gameTime);
+                    e.Draw(gameTime);
 
                 }
             }

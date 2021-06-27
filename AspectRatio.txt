@@ -1,0 +1,5 @@
+Width = 2560 Height = 720; 1.666667 
+
+
+
+graphics.PreferredBackBufferWidth 3500 graphics.PreferredBackBufferHeight 900

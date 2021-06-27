@@ -28,6 +28,8 @@ namespace Asteroids.Screens
 
         #endregion
 
+        bool screenSwitch = false;
+
         #region Constructor
 
         public AttractScreen()
@@ -69,10 +71,30 @@ namespace Asteroids.Screens
                 screen.Push(readyScreen);
             }
 
-            if (elapsedTime >= TimeSpan.FromSeconds(3))
+            if (elapsedTime >= TimeSpan.FromSeconds(5))
             {
                 // Switch to either High Score or Demo Screen. Maybe make a bool, and then it changes what is drawn in the Draw method.
+                elapsedTime = TimeSpan.Zero;
+                if (screenSwitch)
+                {
+                    screenSwitch = false;
+                }
+                else
+                {
+                    screenSwitch = true;
+                }
             }
+            elapsedTime += gameTime.ElapsedGameTime;
+            //To Do: Add in Logic that will run the demo of the game running. Make the special logic PlayScreen, Rocks
+            // Lasers, and EnemyShip Classes, and then make it so the game can run special demos. 
+
+            /*Add in the Bool Logic,
+            if(true)
+                highScore.Update()
+            else
+                Update the other components.
+             */
+            
         }
 
         public override void Draw(GameTime gameTime)
@@ -81,40 +103,52 @@ namespace Asteroids.Screens
             //spriteBatch.DrawString(spriteFont, "Attract Screen", new Vector2(300f,500f), Color.White);
             //spriteBatch.End();
 
+            if (screenSwitch)
+            {
+                highScore.active = true;
+                highScore.Draw(gameTime);
+            }
+            else
+            {
+                #region EVERYTHING
+                spriteBatch.Begin();
+
+                //spriteBatch.Draw(menuImage, new Vector2(0, 0), Color.White);
+
+                Vector2 center = new Vector2(
+                    StateManager.GraphicsDevice.Viewport.Width / 2,
+                    StateManager.GraphicsDevice.Viewport.Height / 2);
+
+                string msg = "Attract Screen";
+
+                Vector2 v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
+
+                Vector2 buffer = center - v;
+
+                spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 175), Color.White);
+
+                //msg = "Play Game [P]";
+                //v = menuFont.MeasureString(msg) / new Vector2(2, 2);
+                //buffer = center - v;
+                //spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 300), Color.White);
+
+                //msg = "View Credits [C]";
+                //v = menuFont.MeasureString(msg) / new Vector2(2, 2);
+                //buffer = center - v;
+                //spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 400), Color.White);
+
+                //msg = "Exit Game [ESC]";
+                //v = menuFont.MeasureString(msg) / new Vector2(2, 2);
+                //buffer = center - v;
+                //spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 500), Color.White);
+
+                spriteBatch.End();
+
+                #endregion
+
+            }
 
 
-            spriteBatch.Begin();
-
-            //spriteBatch.Draw(menuImage, new Vector2(0, 0), Color.White);
-
-            Vector2 center = new Vector2(
-                StateManager.GraphicsDevice.Viewport.Width / 2,
-                StateManager.GraphicsDevice.Viewport.Height / 2);
-
-            string msg = "Attract Screen";
-
-            Vector2 v = spriteFont.MeasureString(msg) / new Vector2(2, 2);
-
-            Vector2 buffer = center - v;
-
-            spriteBatch.DrawString(spriteFont, msg, new Vector2(buffer.X, 175), Color.White);
-
-            //msg = "Play Game [P]";
-            //v = menuFont.MeasureString(msg) / new Vector2(2, 2);
-            //buffer = center - v;
-            //spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 300), Color.White);
-
-            //msg = "View Credits [C]";
-            //v = menuFont.MeasureString(msg) / new Vector2(2, 2);
-            //buffer = center - v;
-            //spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 400), Color.White);
-
-            //msg = "Exit Game [ESC]";
-            //v = menuFont.MeasureString(msg) / new Vector2(2, 2);
-            //buffer = center - v;
-            //spriteBatch.DrawString(menuFont, msg, new Vector2(buffer.X, 500), Color.White);
-
-            spriteBatch.End();
 
 
         }

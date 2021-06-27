@@ -62,6 +62,7 @@ C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\bin\Debug\SharpDX.DXGI.xml
 C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\bin\Debug\SharpDX.Direct3D11.xml
 C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\bin\Debug\SharpDX.XInput.xml
+C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\obj\Debug\MyLibrary.csprojAssemblyReference.cache
 C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\obj\Debug\MyLibrary.csproj.CoreCompileInputs.cache
 C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\obj\Debug\MyLibrary.csproj.CopyComplete
 C:\Users\trent\Documents\GitHub\Asteroids\MyLibrary\obj\Debug\MyLibrary.dll

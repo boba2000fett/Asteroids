@@ -181,19 +181,19 @@ namespace Asteroids
 
             DrawRocks();
 
-            DrawSquare();
+            //DrawSquare();
 
-            DrawRockCollision();
+            //DrawRockCollision();
 
             //pb.AddLine(new Vector2(center.X, center.Y - 10), new Vector2(center.X, center.Y + 10), Color.Violet, 5);
             //pb.AddLine(new Vector2(center.X - 10, center.Y), new Vector2(center.X + 10, center.Y), Color.Violet, 5);
 
 
-            pb.AddVertex(new Vector2(position.X, position.Y - 10), Color.Violet);
-            pb.AddVertex(new Vector2(position.X, position.Y + 10), Color.Violet);
+            ////pb.AddVertex(new Vector2(position.X, position.Y - 10), Color.Violet);
+            ////pb.AddVertex(new Vector2(position.X, position.Y + 10), Color.Violet);
 
-            pb.AddVertex(new Vector2(position.X - 10, position.Y), Color.Violet);
-            pb.AddVertex(new Vector2(position.X + 10, position.Y), Color.Violet);
+            ////pb.AddVertex(new Vector2(position.X - 10, position.Y), Color.Violet);
+            ////pb.AddVertex(new Vector2(position.X + 10, position.Y), Color.Violet);
 
             //pb.AddVertex(new Vector2(242.1367f, 275.431f), Color.Violet);
             //pb.AddVertex(new Vector2(242.1367f, 295.431f), Color.Violet);

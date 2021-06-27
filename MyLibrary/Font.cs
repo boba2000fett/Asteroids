@@ -76,11 +76,6 @@ namespace MyLibrary
                         xPos + dx * lineWidth,
                         yPos + dy * lineHeight));
 
-                    Console.WriteLine();
-                    Console.WriteLine($"********************xPos in Font Class: {xPos}********************");
-                    Console.WriteLine($"-+-+-+-+-+-+-+-+-+-+xPos + dx * lineWidth in Font Class: {xPos}-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
-                    Console.WriteLine();
-
                     if(xInitial < xPos)
                     {
                         xInitial = xPos;
@@ -90,9 +85,7 @@ namespace MyLibrary
             }
 
 
-            //return xPos;
-            return xInitial;
-
+            return xPos;            
         }
 
         public static float TextHeight(float scale)
