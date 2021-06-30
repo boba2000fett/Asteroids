@@ -208,7 +208,27 @@ namespace Asteroids
             Line2D.Intersects(new Line2D(238.5262f, 283.2247f, 238.5262f, 303.2247f),
                 new Line2D(300, 375, 300, 300));
 
+            #region TESTING
+            float[] xTest = new float[4];
+            float[] yTest = new float[4];
+            GetRectanglePositions(out xTest, out yTest);
 
+
+            for(int i = 0; i < xTest.Length; i++)
+            {
+                if (i < 3)
+                {
+                    pb.AddVertex(new Vector2(xTest[i], yTest[i]), Color.Violet);
+                    pb.AddVertex(new Vector2(xTest[i + 1], yTest[i + 1]), Color.Violet);
+                }
+                else
+                {
+                    pb.AddVertex(new Vector2(xTest[i], yTest[i]), Color.Violet);
+                    pb.AddVertex(new Vector2(xTest[0], yTest[0]), Color.Violet);
+                }
+                
+            }
+            #endregion
 
             pb.End();
 
@@ -406,11 +426,11 @@ namespace Asteroids
             list.AddLast(new Vector2(0 * scale, 3 * scale));
             list.AddLast(new Vector2(0 * scale, 0 * scale));
 
-            list.AddLast(new Vector2(1 * scale, 3 * scale));
-            list.AddLast(new Vector2(1 * scale, 0 * scale));
+            //list.AddLast(new Vector2(1 * scale, 3 * scale));
+            //list.AddLast(new Vector2(1 * scale, 0 * scale));
 
-            list.AddLast(new Vector2(2 * scale, 3 * scale));
-            list.AddLast(new Vector2(2 * scale, 0 * scale));
+            //list.AddLast(new Vector2(2 * scale, 3 * scale));
+            //list.AddLast(new Vector2(2 * scale, 0 * scale));
             
 
             return list;
@@ -550,6 +570,19 @@ namespace Asteroids
                 position.Y = StateManager.GraphicsDevice.Viewport.Height;
             }           
         }
+        public void GetRectanglePositions(out float[] xCoordinates, out float[] yCoordinates)
+        {
+            LinkedList<Line2D> rectanglesLine2D = RocksSquareCollision();
 
+            xCoordinates = new float[4];
+            yCoordinates = new float[4];
+            Line2D[] rectangles = rectanglesLine2D.ToArray();
+
+            for (int i = 0; i < rectangles.Length; i++)
+            {
+                xCoordinates[i] = rectangles[i].StartX;
+                yCoordinates[i] = rectangles[i].StartY;
+            }
+        }
     }
 }

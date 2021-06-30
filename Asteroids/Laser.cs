@@ -183,7 +183,15 @@ namespace Asteroids
             LinkedList<Vector2> lineList = GetLaser();
             Color color = new Color();
 
-            color = Color.White;
+            if (playerLaser)
+            {
+                color = Color.White;
+            }
+            else
+            {
+                color = Color.Red;
+            }
+            
 
             foreach (Vector2 v2 in lineList)
             {

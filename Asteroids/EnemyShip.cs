@@ -173,7 +173,7 @@ namespace Asteroids
 
             //DrawSquare();
 
-            //DrawEnemyShipCollision();
+            DrawEnemyShipCollision();
 
             //pb.AddLine(new Vector2(center.X, center.Y - 10), new Vector2(center.X, center.Y + 10), Color.Violet, 5);
             //pb.AddLine(new Vector2(center.X - 10, center.Y), new Vector2(center.X + 10, center.Y), Color.Violet, 5);
@@ -262,93 +262,54 @@ namespace Asteroids
             #region CRASHED Lunar Lander
 
             //Top Of Ship
-            list.AddLast(new Vector2(1 * scale  , 0 * scale  ));
-            list.AddLast(new Vector2(13 * scale  , 0 * scale  ));
+            list.AddLast(new Vector2(3 * scale, 0 * scale));
+            list.AddLast(new Vector2(4 * scale, 1 * scale));
 
-            list.AddLast(new Vector2(13 * scale  , 0 * scale  ));
-            list.AddLast(new Vector2(13 * scale  , 9 * scale  ));
+            list.AddLast(new Vector2(4 * scale, 1 * scale));
+            list.AddLast(new Vector2(4 * scale, 9 * scale));
 
-            list.AddLast(new Vector2(13 * scale  , 9 * scale  ));
-            list.AddLast(new Vector2(1 * scale  , 9 * scale  ));
+            list.AddLast(new Vector2(4 * scale, 9 * scale));
+            list.AddLast(new Vector2(3 * scale, 10 * scale));
 
-            list.AddLast(new Vector2(1 * scale  , 9 * scale  ));
-            list.AddLast(new Vector2(1 * scale  , 0 * scale  ));
+            list.AddLast(new Vector2(3 * scale, 10 * scale));
+            list.AddLast(new Vector2(2 * scale, 9 * scale));
 
-            list.AddLast(new Vector2(1 * scale  , 0 * scale  ));
-            list.AddLast(new Vector2(7 * scale  , 9 * scale  ));
+            list.AddLast(new Vector2(2 * scale, 9 * scale));
+            list.AddLast(new Vector2(2 * scale, 8 * scale));
 
-            list.AddLast(new Vector2(7 * scale  , 9 * scale  ));
-            list.AddLast(new Vector2(13 * scale  , 0 * scale  ));
+            list.AddLast(new Vector2(2 * scale, 8 * scale));
+            list.AddLast(new Vector2(1 * scale, 6 * scale));
 
-            list.AddLast(new Vector2(1 * scale  , 9 * scale  ));
-            list.AddLast(new Vector2(7 * scale  , 0 * scale  ));
+            list.AddLast(new Vector2(1 * scale, 6 * scale));
+            list.AddLast(new Vector2(1 * scale, 4 * scale));
 
-            list.AddLast(new Vector2(7 * scale  , 0 * scale  ));
-            list.AddLast(new Vector2(13 * scale  , 9 * scale  ));
+            list.AddLast(new Vector2(1 * scale, 4 * scale));
+            list.AddLast(new Vector2(2 * scale, 2 * scale));
 
-            //Middle Portion
-            //////list.AddLast(new Vector2(2 * scale  , 9 * scale  ));
-            //////list.AddLast(new Vector2(12 * scale  , 9 * scale  ));
+            list.AddLast(new Vector2(2 * scale, 2 * scale));
+            list.AddLast(new Vector2(2 * scale, 1 * scale));
 
-            //////list.AddLast(new Vector2(12 * scale  , 9 * scale  ));
-            //////list.AddLast(new Vector2(12 * scale  , 11 * scale  ));
+            list.AddLast(new Vector2(2 * scale, 1 * scale));
+            list.AddLast(new Vector2(3 * scale, 0 * scale));
 
-            //////list.AddLast(new Vector2(12 * scale  , 11 * scale  ));
-            //////list.AddLast(new Vector2(2 * scale  , 11 * scale  ));
+            list.AddLast(new Vector2(2 * scale, 8 * scale));
+            list.AddLast(new Vector2(2 * scale, 2 * scale));
 
-            //////list.AddLast(new Vector2(2 * scale  , 11 * scale  ));
-            //////list.AddLast(new Vector2(2 * scale  , 9 * scale  ));
+            //Internal Design
+            list.AddLast(new Vector2(2 * scale, 1 * scale));
+            list.AddLast(new Vector2(4 * scale, 5 * scale));
 
+            list.AddLast(new Vector2(4 * scale, 5 * scale));
+            list.AddLast(new Vector2(2 * scale, 9 * scale));
 
-            //Left Thruster
-            list.AddLast(new Vector2(0 * scale  , 13 * scale  ));
-            list.AddLast(new Vector2(0 * scale  , 12 * scale  ));
+            list.AddLast(new Vector2(2 * scale, 3 * scale));
+            list.AddLast(new Vector2(3 * scale, 5 * scale));
 
-            list.AddLast(new Vector2(0 * scale  , 12 * scale  ));
-            list.AddLast(new Vector2(1 * scale  , 11 * scale  ));
+            list.AddLast(new Vector2(3 * scale, 5 * scale));
+            list.AddLast(new Vector2(2 * scale, 7 * scale));
 
-            list.AddLast(new Vector2(1 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(3 * scale  , 11 * scale  ));
+            
 
-            list.AddLast(new Vector2(3 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(4 * scale  , 12 * scale  ));
-
-            list.AddLast(new Vector2(4 * scale  , 12 * scale  ));
-            list.AddLast(new Vector2(4 * scale  , 13 * scale  ));
-
-            list.AddLast(new Vector2(4 * scale  , 13 * scale  ));
-            list.AddLast(new Vector2(0 * scale  , 13 * scale  ));
-
-            list.AddLast(new Vector2(1 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(1 * scale  , 13 * scale  ));
-
-            list.AddLast(new Vector2(3 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(3 * scale  , 13 * scale  ));
-
-            //Right Thruster
-            list.AddLast(new Vector2(10 * scale  , 13 * scale  ));
-            list.AddLast(new Vector2(10 * scale  , 12 * scale  ));
-
-            list.AddLast(new Vector2(10 * scale  , 12 * scale  ));
-            list.AddLast(new Vector2(11 * scale  , 11 * scale  ));
-
-            list.AddLast(new Vector2(11 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(13 * scale  , 11 * scale  ));
-
-            list.AddLast(new Vector2(13 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(14 * scale  , 12 * scale  ));
-
-            list.AddLast(new Vector2(14 * scale  , 12 * scale  ));
-            list.AddLast(new Vector2(14 * scale  , 13 * scale  ));
-
-            list.AddLast(new Vector2(14 * scale  , 13 * scale  ));
-            list.AddLast(new Vector2(10 * scale  , 13 * scale  ));
-
-            list.AddLast(new Vector2(11 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(11 * scale  , 13 * scale  ));
-
-            list.AddLast(new Vector2(13 * scale  , 11 * scale  ));
-            list.AddLast(new Vector2(13 * scale  , 13 * scale  ));
 
             #endregion
 
@@ -420,24 +381,31 @@ namespace Asteroids
         {
             LinkedList<Vector2> list = new LinkedList<Vector2>();
 
-            list.AddLast(new Vector2(0 * scale, 0 * scale));
-            list.AddLast(new Vector2(3 * scale, 0 * scale));
-
-            list.AddLast(new Vector2(3 * scale, 0 * scale));
-            list.AddLast(new Vector2(3 * scale, 3 * scale));
-
-            list.AddLast(new Vector2(3 * scale, 3 * scale));
-            list.AddLast(new Vector2(0 * scale, 3 * scale));
-
-            list.AddLast(new Vector2(0 * scale, 3 * scale));
-            list.AddLast(new Vector2(0 * scale, 0 * scale));
-
-            list.AddLast(new Vector2(1 * scale, 3 * scale));
-            list.AddLast(new Vector2(1 * scale, 0 * scale));
-
-            list.AddLast(new Vector2(2 * scale, 3 * scale));
             list.AddLast(new Vector2(2 * scale, 0 * scale));
+            list.AddLast(new Vector2(4 * scale, 0 * scale));
 
+            list.AddLast(new Vector2(4 * scale, 0 * scale));
+            list.AddLast(new Vector2(4 * scale, 10 * scale));
+
+            list.AddLast(new Vector2(4 * scale, 10 * scale));
+            list.AddLast(new Vector2(2 * scale, 10 * scale));
+
+            list.AddLast(new Vector2(2 * scale, 10 * scale));
+            list.AddLast(new Vector2(2 * scale, 0 * scale));
+            
+
+            //Box around Cockpit
+            list.AddLast(new Vector2(1 * scale, 2 * scale));
+            list.AddLast(new Vector2(2 * scale, 2 * scale));
+
+            list.AddLast(new Vector2(2 * scale, 2 * scale));
+            list.AddLast(new Vector2(2 * scale, 8 * scale));
+
+            list.AddLast(new Vector2(2 * scale, 8 * scale));
+            list.AddLast(new Vector2(1 * scale, 8 * scale));
+
+            list.AddLast(new Vector2(1 * scale, 8 * scale));
+            list.AddLast(new Vector2(1 * scale, 2 * scale));
 
             return list;
         }
@@ -488,6 +456,17 @@ namespace Asteroids
                     count--;
                 }
             }
+
+            #region Testing
+            Console.WriteLine("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((");
+            foreach (Line2D l in lines)
+            {
+                Console.WriteLine($"Point in EnemyShip Square Collision StartX={l.StartX} StartY={l.StartY} EndX={l.EndX} EndY={l.EndY} ");
+            }
+            Console.WriteLine(")))))))))))))))))))))))))))))))))))))))))))0)))))))))))))))))))))))))))))))))))))))))))0)))))))))))))))))))))))))))))))))))))))))))0))))))))))))0))))))))))))0");
+
+            #endregion
+
             return lines;
         }
 
@@ -578,6 +557,19 @@ namespace Asteroids
             
         }
 
+        public void GetRectanglePositions(out float[] xCoordinates, out float[] yCoordinates)
+        {
+            LinkedList<Line2D> rectanglesLine2D = EnemyShipSquareCollision();
 
+            xCoordinates = new float[8];
+            yCoordinates = new float[8];
+            Line2D[] rectangles = rectanglesLine2D.ToArray();
+            
+            for (int i = 0; i < rectangles.Length; i++)
+            {
+                xCoordinates[i] = rectangles[i].StartX;
+                yCoordinates[i] = rectangles[i].StartY;
+            }
+        }
     }
 }

@@ -1,148 +1,27 @@
-﻿'Asteroids.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Asteroids.exe'. Symbols loaded.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\MonoGame.Framework.dll'. Module was built without symbols.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XAudio2.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.DXGI.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XInput.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\MyLibrary.dll'. Symbols loaded.
-'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.InteropServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.InteropServices.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (232.8667) l1.StartY (279.1052) l1.EndX (232.8667) l1.EndY (299.1052)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (233.6752) l1.StartY (279.6937) l1.EndX (233.6752) l1.EndY (299.6937)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (234.4837) l1.StartY (280.2822) l1.EndX (234.4837) l1.EndY (300.2822)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (235.2922) l1.StartY (280.8707) l1.EndX (235.2922) l1.EndY (300.8707)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (236.1007) l1.StartY (281.4592) l1.EndX (236.1007) l1.EndY (301.4592)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (236.9092) l1.StartY (282.0477) l1.EndX (236.9092) l1.EndY (302.0477)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (237.7177) l1.StartY (282.6362) l1.EndX (237.7177) l1.EndY (302.6362)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (600) l2.StartY (50) l2.EndX (675) l2.EndY (50)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (675) l2.StartY (50) l2.EndX (675) l2.EndY (125)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (675) l2.StartY (125) l2.EndX (600) l2.EndY (125)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (600) l2.StartY (125) l2.EndX (600) l2.EndY (50)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (300) l2.StartY (300) l2.EndX (375) l2.EndY (300)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (375) l2.StartY (300) l2.EndX (375) l2.EndY (375)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (375) l2.StartY (375) l2.EndX (300) l2.EndY (375)
-Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
+﻿((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+First Box
+Point in EnemyShip Square Collision StartX=306 StartY=318 EndX=306 EndY=336 
+Point in EnemyShip Square Collision StartX=306 StartY=336 EndX=216 EndY=336 
+Point in EnemyShip Square Collision StartX=216 StartY=336 EndX=216 EndY=318 
+Point in EnemyShip Square Collision StartX=216 StartY=318 EndX=306 EndY=318 
+
+Second boX
+Point in EnemyShip Square Collision StartX=288 StartY=309 EndX=288 EndY=318 
+Point in EnemyShip Square Collision StartX=288 StartY=318 EndX=234 EndY=318 
+Point in EnemyShip Square Collision StartX=234 StartY=318 EndX=234 EndY=309 
+Point in EnemyShip Square Collision StartX=234 StartY=309 EndX=288 EndY=309 
+)))))))))))))))))))))))))))))))))))))))))))0)))))))))))))))))))))))))))))))))))))))))))0)))))))))))))))))))))))))))))))))))))))))))0))))))))))))0))))))))))))0
 'Asteroids.exe' (CLR v4.0.30319: Asteroids.exe): Loaded 'C:\Users\trent\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-The thread 0x4c20 has exited with code 0 (0x0).
-The program '[9188] Asteroids.exe' has exited with code 0 (0x0).
+The thread 0x5950 has exited with code 0 (0x0).
+The program '[23532] Asteroids.exe' has exited with code 0 (0x0).
+
+
+
+Notes:
+The first four are from the Top Box
+The second four are from the Bottom One
+I can prehaps return them as two lists, and these lists are generated when a function call is made, and this will essentially act as the collision.
+So, we would preform this check instead of trying to do the Line2D Intersect function, because that is having some not very good effects at the moment.
+
+Thinking:
+We want to see if the line is within the box.
