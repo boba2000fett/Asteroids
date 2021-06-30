@@ -263,8 +263,8 @@ namespace Asteroids.Screens
             {
                 if (enemyShipTime > TimeSpan.FromSeconds(randomEnemyShipSpawnTime))
                 {
-                    if (testHit)
-                    {
+                    //if (testHit)
+                    //{
                         #region Instantiate New Enemy Ship Object
                         int xPos;
                         int yPos;
@@ -283,16 +283,16 @@ namespace Asteroids.Screens
                         }
                         #endregion
 
-                    }
-                    else
-                    {
-                        #region Testing Collision
-                        EnemyShip enemyShip = new EnemyShip(StateManager.Game, 300, 300, (float)(90 * Math.PI / 180), 1, 3);
-                        enemyShip.Initialize();
-                        enemyShip.MAX_THRUST_POWER = 0;
-                        activeEnemyShips.AddLast(enemyShip);
-                        #endregion
-                    }
+                    //}
+                    //else
+                    //{
+                    //    #region Testing Collision
+                    //    EnemyShip enemyShip = new EnemyShip(StateManager.Game, 300, 300, (float)(90 * Math.PI / 180), 1, 3);
+                    //    enemyShip.Initialize();
+                    //    enemyShip.MAX_THRUST_POWER = 0;
+                    //    activeEnemyShips.AddLast(enemyShip);
+                    //    #endregion
+                    //}
 
 
 
@@ -338,8 +338,10 @@ namespace Asteroids.Screens
                     double theta = Math.Atan(m);
                     theta -= (Math.PI / 2);
                     //Fire Laser
-                    //laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, (float)theta, false);
-                    laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, (float)(Math.PI / 2), false);
+                    
+                    laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, (float)theta, false);
+                    //laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, (float)(Math.PI / 2), false);
+                    
                     laser.Initialize();
                     activeEnemyLasers.AddLast(laser);
                     //Reset enemyShipFireTime
@@ -416,7 +418,7 @@ namespace Asteroids.Screens
                 }
             }
 
-
+            #region NEW Collision Between Player Laser and EnemyShip
             if (activePlayerLasers.Count > 0)
             {
                 float[] xCoordinates = new float[8];
@@ -441,17 +443,16 @@ namespace Asteroids.Screens
                             //e.DestroyShip();
                             //Remove e from activeEnemyShips LinkedList
                             activeEnemyShips.First.Value.Dispose();
-                            activeEnemyShips.Remove(activeEnemyShips.First.Value)
-                            testHit = true;
+                            activeEnemyShips.Remove(activeEnemyShips.First.Value);
+                            //testHit = true;
                             return;
                         }
                     }
                 }
             }
+            #endregion
 
-
-
-            #region Collision between Laser and EnemyShip
+            #region OLD Collision between Laser and EnemyShip
             //if (activePlayerLasers.Count > 0)
             //{
             //    laserCollision = activePlayerLasers.First.Value.ConvertLaserLine2D();
@@ -496,79 +497,7 @@ namespace Asteroids.Screens
             //}
             #endregion
 
-            //if (activePlayerLasers.Count > 0)
-            //{
-            //    laserCollision = activePlayerLasers.First.Value.ConvertLaserLine2D();
-
-            //    //This is on the activePlayerLaser
-            //    //Rocks and Laser Collision
-            //    Rocks[] activeRocksArray = activeRocks.ToArray();
-            //    for (int i = 0; i < activeRocksArray.Count(); i++)
-            //    {
-            //        float[] xCoordinates = new float[4];
-            //        float[] yCoordinates = new float[4];
-
-            //        Random rand = new Random();
-            //        rockCollision = activeRocksArray[i].RocksSquareCollision();
-
-            //        float angle1 = 0f;
-            //        float angle2 = 0f;
-            //        int location = 0;
-            //        int index = 1;
-
-            //        //Console.WriteLine($"Rock Rotation{activeRocksArray[i].rotation}");
-
-            //        foreach (Line2D l1 in laserCollision)
-            //        {
-            //            activeRocksArray[i].GetRectanglePositions(out xCoordinates, out yCoordinates);
-
-            //            if (
-            //                (GFG.check(xCoordinates[0], yCoordinates[0], xCoordinates[1], yCoordinates[1], xCoordinates[2], yCoordinates[2], xCoordinates[3], yCoordinates[3], l1.StartX, l1.StartY)) ||
-            //                (GFG.check(xCoordinates[0], yCoordinates[0], xCoordinates[1], yCoordinates[1], xCoordinates[2], yCoordinates[2], xCoordinates[3], yCoordinates[3], l1.EndX, l1.EndX))
-            //                )
-            //            {
-            //                CheckAngle(activeRocksArray[i].rotation, out location, out angle1, out angle2);
-
-            //                playerShip1.AddScore(activeRocksArray[i].score);
-
-            //                if (activeRocksArray[i].size > 1)
-            //                {
-            //                    Console.WriteLine($"Before Collision Check: {activeRocks.Count}");
-
-            //                    Rocks newRock1 = new Rocks(angle2, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
-            //                    newRock1.Initialize();
-            //                    activeRocks.AddLast(newRock1);
-            //                    newRock1.MAX_THRUST_POWER = 1f;
-            //                    Rocks newRock2 = new Rocks(angle1, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
-            //                    newRock2.Initialize();
-            //                    activeRocks.AddLast(newRock2);
-            //                    newRock2.MAX_THRUST_POWER = 1f;
-            //                    activeRocks.Remove(activeRocksArray[i]);
-            //                    activeRocksArray[i].Dispose();
-
-            //                    Console.WriteLine($"After Collision Check: {activeRocks.Count}");
-            //                }
-            //                else
-            //                {
-            //                    activeRocks.Remove(activeRocksArray[i]);
-            //                    activeRocksArray[i].Dispose();
-            //                    Console.WriteLine($"activeRocks Count{activeRocks.Count}");
-            //                }
-
-            //                activePlayerLasers.First.Value.Dispose();
-            //                activePlayerLasers.Remove(activePlayerLasers.First.Value);
-            //                return;
-            //            }
-            //            else
-            //            {
-            //                Console.WriteLine("Failed");
-            //            }
-
-            //        }
-            //    }
-            //}
-
-            #region OLD Collision Between Ship and Rock
+            #region NEW Collision Between Rock and Player Laser
             if (activePlayerLasers.Count > 0)
             {
                 laserCollision = activePlayerLasers.First.Value.ConvertLaserLine2D();
@@ -578,6 +507,9 @@ namespace Asteroids.Screens
                 Rocks[] activeRocksArray = activeRocks.ToArray();
                 for (int i = 0; i < activeRocksArray.Count(); i++)
                 {
+                    float[] xCoordinates = new float[4];
+                    float[] yCoordinates = new float[4];
+
                     Random rand = new Random();
                     rockCollision = activeRocksArray[i].RocksSquareCollision();
 
@@ -590,53 +522,125 @@ namespace Asteroids.Screens
 
                     foreach (Line2D l1 in laserCollision)
                     {
-                        foreach (Line2D l2 in rockCollision)
-                        {
-                            //if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
-                            //{
-                            //    Console.WriteLine($"Laser Collision: l1.StartX ({l1.StartX}) l1.StartY ({l1.StartY}) l1.EndX ({l1.EndX}) l1.EndY ({l1.EndY})");
-                            //    Console.WriteLine($"Rock Collision:  l2.StartX ({l2.StartX}) l2.StartY ({l2.StartY}) l2.EndX ({l2.EndX}) l2.EndY ({l2.EndY})");
-                            //}
+                        activeRocksArray[i].GetRectanglePositions(out xCoordinates, out yCoordinates);
+                        if (
+                            (GFG.PointInRectangle(new Vector2(xCoordinates[0], yCoordinates[0]), new Vector2(xCoordinates[1], yCoordinates[1]), new Vector2(xCoordinates[2], yCoordinates[2]), new Vector2(xCoordinates[3], yCoordinates[3]), new Vector2(l1.StartX, l1.StartY))) ||
+                            (GFG.PointInRectangle(new Vector2(xCoordinates[0], yCoordinates[0]), new Vector2(xCoordinates[1], yCoordinates[1]), new Vector2(xCoordinates[2], yCoordinates[2]), new Vector2(xCoordinates[3], yCoordinates[3]), new Vector2(l1.EndX, l1.EndY)))
+                            )
+                        {                        
+                            CheckAngle(activeRocksArray[i].rotation, out location, out angle1, out angle2);
 
-                            if ((Line2D.Intersects(l1, l2)) && (activePlayerLasers.First.Value.playerLaser) && (activePlayerLasers.First != null))
+                            playerShip1.AddScore(activeRocksArray[i].score);
+
+                            if (activeRocksArray[i].size > 1)
                             {
+                                Console.WriteLine($"Before Collision Check: {activeRocks.Count}");
 
-                                CheckAngle(activeRocksArray[i].rotation, out location, out angle1, out angle2);
+                                Rocks newRock1 = new Rocks(angle2, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
+                                newRock1.Initialize();
+                                activeRocks.AddLast(newRock1);
+                                newRock1.MAX_THRUST_POWER = 1f;
+                                Rocks newRock2 = new Rocks(angle1, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
+                                newRock2.Initialize();
+                                activeRocks.AddLast(newRock2);
+                                newRock2.MAX_THRUST_POWER = 1f;
+                                activeRocks.Remove(activeRocksArray[i]);
+                                activeRocksArray[i].Dispose();
 
-                                playerShip1.AddScore(activeRocksArray[i].score);
-
-                                if (activeRocksArray[i].size > 1)
-                                {
-                                    Console.WriteLine($"Before Collision Check: {activeRocks.Count}");
-
-                                    Rocks newRock1 = new Rocks(angle2, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
-                                    newRock1.Initialize();
-                                    activeRocks.AddLast(newRock1);
-                                    newRock1.MAX_THRUST_POWER = 1f;
-                                    Rocks newRock2 = new Rocks(angle1, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
-                                    newRock2.Initialize();
-                                    activeRocks.AddLast(newRock2);
-                                    newRock2.MAX_THRUST_POWER = 1f;
-                                    activeRocks.Remove(activeRocksArray[i]);
-                                    activeRocksArray[i].Dispose();
-
-                                    Console.WriteLine($"After Collision Check: {activeRocks.Count}");
-                                }
-                                else
-                                {
-                                    activeRocks.Remove(activeRocksArray[i]);
-                                    activeRocksArray[i].Dispose();
-                                    Console.WriteLine($"activeRocks Count{activeRocks.Count}");
-                                }
-
-                                activePlayerLasers.First.Value.Dispose();
-                                activePlayerLasers.Remove(activePlayerLasers.First.Value);
-                                return;
+                                Console.WriteLine($"After Collision Check: {activeRocks.Count}");
                             }
+                            else
+                            {
+                                activeRocks.Remove(activeRocksArray[i]);
+                                activeRocksArray[i].Dispose();
+                                Console.WriteLine($"activeRocks Count{activeRocks.Count}");
+                            }
+
+                            activePlayerLasers.First.Value.Dispose();
+                            activePlayerLasers.Remove(activePlayerLasers.First.Value);
+                            return;
                         }
+                        else
+                        {
+                            Console.WriteLine("Failed");
+                        }
+
                     }
                 }
             }
+
+
+            #endregion
+
+            #region OLD Collision Between Ship and Rock
+            //if (activePlayerLasers.Count > 0)
+            //{
+            //    laserCollision = activePlayerLasers.First.Value.ConvertLaserLine2D();
+
+            //    //This is on the activePlayerLaser
+            //    //Rocks and Laser Collision
+            //    Rocks[] activeRocksArray = activeRocks.ToArray();
+            //    for (int i = 0; i < activeRocksArray.Count(); i++)
+            //    {
+            //        Random rand = new Random();
+            //        rockCollision = activeRocksArray[i].RocksSquareCollision();
+
+            //        float angle1 = 0f;
+            //        float angle2 = 0f;
+            //        int location = 0;
+            //        int index = 1;
+
+            //        //Console.WriteLine($"Rock Rotation{activeRocksArray[i].rotation}");
+
+            //        foreach (Line2D l1 in laserCollision)
+            //        {
+            //            foreach (Line2D l2 in rockCollision)
+            //            {
+            //                //if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+            //                //{
+            //                //    Console.WriteLine($"Laser Collision: l1.StartX ({l1.StartX}) l1.StartY ({l1.StartY}) l1.EndX ({l1.EndX}) l1.EndY ({l1.EndY})");
+            //                //    Console.WriteLine($"Rock Collision:  l2.StartX ({l2.StartX}) l2.StartY ({l2.StartY}) l2.EndX ({l2.EndX}) l2.EndY ({l2.EndY})");
+            //                //}
+
+            //                if ((Line2D.Intersects(l1, l2)) && (activePlayerLasers.First.Value.playerLaser) && (activePlayerLasers.First != null))
+            //                {
+
+            //                    CheckAngle(activeRocksArray[i].rotation, out location, out angle1, out angle2);
+
+            //                    playerShip1.AddScore(activeRocksArray[i].score);
+
+            //                    if (activeRocksArray[i].size > 1)
+            //                    {
+            //                        Console.WriteLine($"Before Collision Check: {activeRocks.Count}");
+
+            //                        Rocks newRock1 = new Rocks(angle2, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
+            //                        newRock1.Initialize();
+            //                        activeRocks.AddLast(newRock1);
+            //                        newRock1.MAX_THRUST_POWER = 1f;
+            //                        Rocks newRock2 = new Rocks(angle1, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
+            //                        newRock2.Initialize();
+            //                        activeRocks.AddLast(newRock2);
+            //                        newRock2.MAX_THRUST_POWER = 1f;
+            //                        activeRocks.Remove(activeRocksArray[i]);
+            //                        activeRocksArray[i].Dispose();
+
+            //                        Console.WriteLine($"After Collision Check: {activeRocks.Count}");
+            //                    }
+            //                    else
+            //                    {
+            //                        activeRocks.Remove(activeRocksArray[i]);
+            //                        activeRocksArray[i].Dispose();
+            //                        Console.WriteLine($"activeRocks Count{activeRocks.Count}");
+            //                    }
+
+            //                    activePlayerLasers.First.Value.Dispose();
+            //                    activePlayerLasers.Remove(activePlayerLasers.First.Value);
+            //                    return;
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
             #endregion
 
             #endregion
@@ -700,8 +704,8 @@ namespace Asteroids.Screens
                         if (Line2D.Intersects(l1, l2))
                         {
 
-                            //playerShip1.CrashShip();
-                            //return;
+                            playerShip1.CrashShip();
+                            return;
                         }
                     }
                 }
@@ -871,8 +875,8 @@ namespace Asteroids.Screens
             //Verticle Position on the Screen
             yPos = 0;
 
-            //randomEnemyShipSpawnTime = rand.Next(50, 181);
-            randomEnemyShipSpawnTime = rand.Next(1, 5);
+            randomEnemyShipSpawnTime = rand.Next(50, 181);
+            //randomEnemyShipSpawnTime = rand.Next(1, 5);
             //Generate whether or not its on the left side or right side
             lr = rand.Next(0, 2);
             //Generate Y position on Screen
@@ -884,7 +888,7 @@ namespace Asteroids.Screens
         {
             //Regenerate enemyShipFireTime
             Random rand = new Random();
-            randomEnemyShipFireTime = rand.Next(1, 5);
+            randomEnemyShipFireTime = rand.Next(1, 6);
         }
     }
 
@@ -933,5 +937,45 @@ namespace Asteroids.Screens
             return (A == A1 + A2 + A3 + A4);
         }
 
+
+
+        static bool PointInTriangle(Vector2 A, Vector2 B, Vector2 C, Vector2 P)
+        {
+            // Compute vectors        
+            Vector2 v0 = C - A;
+            Vector2 v1 = B - A;
+            Vector2 v2 = P - A;
+
+            // Compute dot products
+            float dot00 = Vector2.Dot(v0, v0);
+            float dot01 = Vector2.Dot(v0, v1);
+            float dot02 = Vector2.Dot(v0, v2);
+            float dot11 = Vector2.Dot(v1, v1);
+            float dot12 = Vector2.Dot(v1, v2);
+
+            // Compute barycentric coordinates
+            float invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+            float u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+            float v = (dot00 * dot12 - dot01 * dot02) * invDenom;
+
+            // Check if point is in triangle
+            if (u >= 0 && v >= 0 && u <= 1 && v <= 1)
+            { 
+                return true; 
+            }
+            else 
+            { 
+                return false; 
+            }
+        }
+    
+
+
+        public static bool PointInRectangle(Vector2 X, Vector2 Y, Vector2 Z, Vector2 W, Vector2 P)
+        {
+            if (PointInTriangle(X, Y, Z, P)) return true;
+            if (PointInTriangle(X, Z, W, P)) return true;
+            return false;
+        }
     }
 }

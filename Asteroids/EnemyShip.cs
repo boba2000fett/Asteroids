@@ -173,7 +173,7 @@ namespace Asteroids
 
             //DrawSquare();
 
-            DrawEnemyShipCollision();
+            //DrawEnemyShipCollision();
 
             //pb.AddLine(new Vector2(center.X, center.Y - 10), new Vector2(center.X, center.Y + 10), Color.Violet, 5);
             //pb.AddLine(new Vector2(center.X - 10, center.Y), new Vector2(center.X + 10, center.Y), Color.Violet, 5);

@@ -233,13 +233,13 @@ namespace Asteroids
             //Console.WriteLine(Line2D.Intersects(new Line2D(322.6734f, 329.3851f, 303.6414f, 323.2384f),
             //     new Line2D(272, 304, 296, 304)));
 
-            pb.AddVertex(new Vector2(322.6734f, 329.3851f), Color.Azure);
+            //pb.AddVertex(new Vector2(322.6734f, 329.3851f), Color.Azure);
 
-            pb.AddVertex(new Vector2(303.6414f, 323.2384f), Color.Azure);
+            //pb.AddVertex(new Vector2(303.6414f, 323.2384f), Color.Azure);
 
-            pb.AddVertex(new Vector2(272, 304), Color.Azure);
+            //pb.AddVertex(new Vector2(272, 304), Color.Azure);
 
-            pb.AddVertex(new Vector2(296, 304), Color.Azure);
+            //pb.AddVertex(new Vector2(296, 304), Color.Azure);
 
             pb.End();
 

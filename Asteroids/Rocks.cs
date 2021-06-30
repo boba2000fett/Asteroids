@@ -214,7 +214,7 @@ namespace Asteroids
             GetRectanglePositions(out xTest, out yTest);
 
 
-            for(int i = 0; i < xTest.Length; i++)
+            for (int i = 0; i < xTest.Length; i++)
             {
                 if (i < 3)
                 {
@@ -226,7 +226,7 @@ namespace Asteroids
                     pb.AddVertex(new Vector2(xTest[i], yTest[i]), Color.Violet);
                     pb.AddVertex(new Vector2(xTest[0], yTest[0]), Color.Violet);
                 }
-                
+
             }
             #endregion
 
@@ -438,10 +438,30 @@ namespace Asteroids
 
         public LinkedList<Line2D> RocksSquareCollision()
         {
-            //Vector2 center = new Vector2(.5f * scale, .5f * scale);
             LinkedList<Vector2> lineList = GetSquare();
 
             LinkedList<Vector2> ll = new LinkedList<Vector2>();
+
+
+            ////////Vector2 center = new Vector2(.5f * scale, .5f * scale);
+            //////if (this.rotation > 0 || this.rotation <= (float)(Math.PI / 2))
+            //////{
+            //////    Vector2 center = new Vector2(1 * scale, -1 * scale);
+            //////}
+            //////if (this.rotation > (float)(Math.PI / 2) || this.rotation <= (float)(Math.PI))
+            //////{
+            //////    Vector2 center = new Vector2(1 * scale, 1 * scale);
+            //////}
+            //////if (this.rotation > (float)(Math.PI) || this.rotation <= (float)((3 / 2) * Math.PI))
+            //////{
+            //////    Vector2 center = new Vector2(-1 * scale, 1 * scale);
+            //////}
+            //////if (this.rotation > (float)((3 / 2) * Math.PI) || this.rotation <= (float)(2 * Math.PI))
+            //////{
+            //////    Vector2 center = new Vector2(-1 * scale, -1 * scale);
+            //////}
+
+            //////float rotation = 0;//====================================================================TESTING
 
             foreach (Vector2 v in lineList)
             {
@@ -482,6 +502,71 @@ namespace Asteroids
                     count--;
                 }
             }
+
+
+            #region Recalculate Positions of Square with new Center
+
+            //float[] xCoordinates = new float[4];
+            //float[] yCoordinates = new float[4];
+            //Line2D[] rectangles = lines.ToArray();
+
+            //for (int i = 0; i < rectangles.Length; i++)
+            //{
+            //    xCoordinates[i] = rectangles[i].StartX;
+            //    yCoordinates[i] = rectangles[i].StartY;
+            //}
+
+            ////xCenter = (x1 + x2) / 2
+            ////yCenter = (y1 + y2) / 2
+            ////This is calculated by finding the centroid of the Square that is generated
+            //float centerX = (xCoordinates[0] + xCoordinates[1] + xCoordinates[2]) / 3;
+            //float centerY = (yCoordinates[0] + yCoordinates[1] + yCoordinates[2]) / 3;
+
+            //rotation = 0;
+
+            //foreach (Vector2 v in lineList)
+            //{
+            //    float Xrotated = centerX + (v.X - centerX) *
+            //      (float)Math.Cos(rotation) - (v.Y - centerY) *
+            //      (float)Math.Sin(rotation);
+
+            //    float Yrotated = centerY + (v.X - centerX) *
+            //      (float)Math.Sin(rotation) + (v.Y - centerY) *
+            //      (float)Math.Cos(rotation);
+
+            //    ll.AddLast(new Vector2(position.X + (Xrotated * scale),
+            //      position.Y + (Yrotated * scale)));
+            //}
+
+
+            //LinkedList<Line2D> lines2 = new LinkedList<Line2D>();
+
+            //count = 0;
+            //var1 = 0.0f;
+            //var2 = 0.0f;
+            //var3 = 0.0f;
+            //var4 = 0.0f;
+
+            //foreach (Vector2 l in ll)
+            //{
+            //    if (count == 0)
+            //    {
+            //        var1 = l.X;
+            //        var2 = l.Y;
+            //        count++;
+            //    }
+            //    else
+            //    {
+            //        var3 = l.X;
+            //        var4 = l.Y;
+            //        lines2.AddLast(new Line2D(var1, var2, var3, var4));
+            //        count--;
+            //    }
+            //}
+
+            #endregion
+
+
             return lines;
         }
 
@@ -492,8 +577,6 @@ namespace Asteroids
             {
                 pb.AddVertex(new Vector2(line.StartX, line.StartY), Color.Coral);
                 pb.AddVertex(new Vector2(line.EndX, line.EndY), Color.Coral);
-
-
             }
         }
 
