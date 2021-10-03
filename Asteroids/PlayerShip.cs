@@ -16,11 +16,7 @@ using MyLibrary;
 namespace Asteroids
 {
     class PlayerShip : DrawableGameComponent
-    {
-        #region VARIABLES 
-
-        #region Components
-
+    {       
         private PrimitiveBatch pb;
 
         TimeSpan elapsedTime;
@@ -32,10 +28,6 @@ namespace Asteroids
         List<SoundEffect> soundEffects;
         public bool victorySoundPlaying;
 
-        #endregion
-
-        #region PlayerShip Variables
-
         LinkedList<Vector2> playerShip;
 
         public Vector2 position;
@@ -46,11 +38,7 @@ namespace Asteroids
         Vector2 center;
 
         public int score;
-
-        #endregion
-
-        #region Thrust Variables
-
+        
         private int lives;
         public int Lives
         {
@@ -70,22 +58,14 @@ namespace Asteroids
         public float thrustPowerIncrement;
 
         const float MAX_THRUST_POWER = 3.0f;
-        #endregion
-
-        #region Game State Variables
 
         public bool firstLanding;
-
 
         public bool landed, crashed = false;
 
         int explosionCounter;
 
         public bool gameEnded;
-
-        #endregion 
-
-        #region Velocity Variables
 
         Vector2 UP = new Vector2(0, -1);
         Vector2 DOWN = new Vector2(0, 1);
@@ -103,27 +83,22 @@ namespace Asteroids
                 return rotation;
             }
         }
-        
 
-        #endregion 
+        private int tempScore;
 
-        #endregion
+        public bool isDemoScreen;
 
-        #region Constructor
-        public PlayerShip(Game game) : base(game)
+        public PlayerShip(Game game, bool isDemoScreen) : base(game)
         {
             pb = new PrimitiveBatch(game.GraphicsDevice);
+            this.isDemoScreen = isDemoScreen;
         }
-
-        #endregion
-
-        #region Standard Monogame Methods (Initialize, LoadContent, Update, Draw)
 
         public override void Initialize()
         {
             soundEffects = new List<SoundEffect>();
 
-            position = new Vector2(50, 135);
+            position = new Vector2(StateManager.GraphicsDevice.Viewport.Width / 2, StateManager.GraphicsDevice.Viewport.Height / 2);
 
             oldPosition = position;
             newPosition = position;
@@ -144,8 +119,7 @@ namespace Asteroids
             uiScale = 2f;
 
             thrustPower = 0;
-            thrustPowerIncrement = 0.1f;
-            
+            thrustPowerIncrement = 0.1f;            
 
             oldKeyboardState = new KeyboardState();
 
@@ -157,6 +131,7 @@ namespace Asteroids
 
             gameEnded = false;
 
+            tempScore = 1;
 
             base.Initialize();
         }
@@ -169,9 +144,7 @@ namespace Asteroids
         {
             soundEffects.Add(Game.Content.Load<SoundEffect>("explosion"));
             soundEffects.Add(Game.Content.Load<SoundEffect>("success"));
-            soundEffects.Add(Game.Content.Load<SoundEffect>("thrust"));
-
-            var victorySound = soundEffects[1].CreateInstance();
+            soundEffects.Add(Game.Content.Load<SoundEffect>("thrust"));            
         }
 
         public override void Update(GameTime gameTime)
@@ -180,7 +153,10 @@ namespace Asteroids
             {
                 VelocityCalculation();
 
-                CheckInput(gameTime);
+                if (!isDemoScreen)
+                {
+                    CheckInput(gameTime);
+                }
 
                 CheckRotation();
 
@@ -189,13 +165,11 @@ namespace Asteroids
             else if (crashed && !gameEnded)
             {
                 playerShip = GetPlayerShip();
-
-                CheckInput(gameTime);
+                if (!isDemoScreen)
+                {
+                    CheckInput(gameTime);
+                }
             }
-            //else
-            //{
-
-            //}
 
             if (lives <= 0)
             {
@@ -226,42 +200,29 @@ namespace Asteroids
 
             DrawPlayerShip();
 
-            //DrawRockCollision();
-
             DisplayLives();
-
-            //Console.WriteLine(Line2D.Intersects(new Line2D(322.6734f, 329.3851f, 303.6414f, 323.2384f),
-            //     new Line2D(272, 304, 296, 304)));
-
-            //pb.AddVertex(new Vector2(322.6734f, 329.3851f), Color.Azure);
-
-            //pb.AddVertex(new Vector2(303.6414f, 323.2384f), Color.Azure);
-
-            //pb.AddVertex(new Vector2(272, 304), Color.Azure);
-
-            //pb.AddVertex(new Vector2(296, 304), Color.Azure);
 
             pb.End();
 
-            #region User Interface
-
-            DisplayTitle();
-            DisplayAngle();            
-            DisplayScore();
-
-
-            if (crashed && !gameEnded)
+            if (!isDemoScreen)
             {
-                DisplayCrashed();
-            }
-            else if (gameEnded)
-            {
-                DisplayGameOver();
-            }
+                #region User Interface
 
-            #endregion
+                DisplayTitle();
+                DisplayAngle();
+                DisplayScore();
 
-            
+                if (crashed && !gameEnded)
+                {
+                    DisplayCrashed();
+                }
+                else if (gameEnded)
+                {
+                    DisplayGameOver();
+                }
+
+                #endregion
+            }
 
             base.Draw(gameTime);
         }
@@ -273,14 +234,8 @@ namespace Asteroids
             {
                 pb.AddVertex(new Vector2(line.StartX, line.StartY), Color.Coral);
                 pb.AddVertex(new Vector2(line.EndX, line.EndY), Color.Coral);
-
-
             }
         }
-
-        #endregion
-
-        #region Drawing PlayerShip Methods (DrawPlayerShip, GetSquare, GetPlayerShip)
 
         public void DrawPlayerShip()
         {
@@ -329,9 +284,8 @@ namespace Asteroids
 
             if (!crashed)
             {
-                #region Lunar Lander
+                #region Player Ship Vectors
 
-                //Top Of Ship
                 list.AddLast(new Vector2(0 * scale, 4 * scale));
                 list.AddLast(new Vector2(2 * scale, 0 * scale));
 
@@ -345,11 +299,10 @@ namespace Asteroids
             }
             else
             {
-                #region CRASHED Lunar Lander
+                #region CRASHED Player Ship Vectors
 
                 float explosionScaled = (explosionCounter * scale);
 
-                //Top Of Ship
                 list.AddLast(new Vector2(1 * scale + (explosionScaled), 0 * scale + (explosionScaled)));
                 list.AddLast(new Vector2(13 * scale + (explosionScaled), 0 * scale + (explosionScaled)));
 
@@ -374,21 +327,6 @@ namespace Asteroids
                 list.AddLast(new Vector2(7 * scale - (explosionScaled), 0 * scale - (explosionScaled)));
                 list.AddLast(new Vector2(13 * scale - (explosionScaled), 9 * scale - (explosionScaled)));
 
-                //Middle Portion
-                //////list.AddLast(new Vector2(2 * scale + (explosionScaled), 9 * scale + (explosionScaled)));
-                //////list.AddLast(new Vector2(12 * scale + (explosionScaled), 9 * scale + (explosionScaled)));
-
-                //////list.AddLast(new Vector2(12 * scale + (explosionScaled), 9 * scale + (explosionScaled)));
-                //////list.AddLast(new Vector2(12 * scale + (explosionScaled), 11 * scale + (explosionScaled)));
-
-                //////list.AddLast(new Vector2(12 * scale - (explosionScaled), 11 * scale - (explosionScaled)));
-                //////list.AddLast(new Vector2(2 * scale - (explosionScaled), 11 * scale - (explosionScaled)));
-
-                //////list.AddLast(new Vector2(2 * scale - (explosionScaled), 11 * scale - (explosionScaled)));
-                //////list.AddLast(new Vector2(2 * scale - (explosionScaled), 9 * scale - (explosionScaled)));
-
-
-                //Left Thruster
                 list.AddLast(new Vector2(0 * scale + (explosionScaled), 13 * scale + (explosionScaled)));
                 list.AddLast(new Vector2(0 * scale + (explosionScaled), 12 * scale + (explosionScaled)));
 
@@ -413,7 +351,6 @@ namespace Asteroids
                 list.AddLast(new Vector2(3 * scale - (explosionScaled), 11 * scale - (explosionScaled)));
                 list.AddLast(new Vector2(3 * scale - (explosionScaled), 13 * scale - (explosionScaled)));
 
-                //Right Thruster
                 list.AddLast(new Vector2(10 * scale + (explosionScaled), 13 * scale + (explosionScaled)));
                 list.AddLast(new Vector2(10 * scale + (explosionScaled), 12 * scale + (explosionScaled)));
 
@@ -445,11 +382,7 @@ namespace Asteroids
 
             return list;
         }
-
-        #endregion
-
-        #region Display Methods (DisplayFuel, DisplayAngle, DisplayTitle, DisplayVelocity, DisplayScore, DisplayCrashed, DisplayInstructions, DisplayGameOver)
-
+        
         public void DisplayAngle()
         {
             Color colour = Color.White;
@@ -463,16 +396,28 @@ namespace Asteroids
 
         public void DisplayTitle()
         {
-            //Color colour = Color.White;
-            //string text = "Lunar Lander";
-            //float px = 537.0f;
-            //float py = 1 * (Font.TextHeight(uiScale));
+            Color colour = Color.White;
+            string text;
+            float center;
 
-            //float center = (float)(
-            //    (StateManager.GraphicsDevice.Viewport.Width / 2) -
-            //    ((Font.TextWidth(uiScale, text)) / 2));
+            text = "Revenge of The Rocks";
+            float px = 537.0f;
+            float py = 1 * (Font.TextHeight(uiScale));
 
-            //Font.WriteTextSpecifyWidth(pb, px, py, uiScale, colour, text, 10, 3);
+            center = (float)(
+                (StateManager.GraphicsDevice.Viewport.Width / 2) -
+                ((Font.TextWidth(uiScale, text)) / 4));
+
+            Font.WriteTextSpecifyWidth(pb, center - 10, py, uiScale, colour, text, 10, 3);
+
+            text = "Space Edition";            
+            py = 4 * (Font.TextHeight(uiScale));
+
+            center = (float)(
+                (StateManager.GraphicsDevice.Viewport.Width / 2) -
+                ((Font.TextWidth(uiScale, text)) / 4));
+
+            Font.WriteTextSpecifyWidth(pb, center, py, uiScale, colour, text, 10, 3);
         }
 
         public void DisplayScore()
@@ -483,7 +428,7 @@ namespace Asteroids
             float py;
 
             text = $"Score {score}";
-            py = 20 * (Font.TextHeight(uiScale));
+            py = 10 * (Font.TextHeight(uiScale));
             Font.WriteText(pb, px, py, uiScale, colour, text);
         }
 
@@ -491,7 +436,7 @@ namespace Asteroids
         {
             Color colour = Color.White;
 
-            string text = "CRASHED SHUTTLE: LOST 10 UNITS OF FUEL";
+            string text = "CRASHED SHIP: LOST 1 LIFE";
 
             float px = (float)(
                 (StateManager.GraphicsDevice.Viewport.Width / 2) -
@@ -502,7 +447,7 @@ namespace Asteroids
                 ((Font.TextHeight(uiScale)) / 2));
             Font.WriteText(pb, px, py, uiScale, colour, text);
 
-            text = "Press Enter to Respawn";
+            text = "Press J to Respawn";
 
             px = (float)(
                 (StateManager.GraphicsDevice.Viewport.Width / 2) -
@@ -565,16 +510,7 @@ namespace Asteroids
                 (StateManager.GraphicsDevice.Viewport.Width / 2) -
                 ((Font.TextWidth(uiScale, text)) / 2));
             py += 50;
-            Font.WriteText(pb, px, py, uiScale, colour, text);
-
-            
-            //text = "Press ESC To Exit";
-            //px = (float)(
-            //    (StateManager.GraphicsDevice.Viewport.Width / 2) -
-            //    ((Font.TextWidth(uiScale, text)) / 2));
-            //py += 50;
-            //Font.WriteText(pb, px, py, uiScale, colour, text);
-
+            Font.WriteText(pb, px, py, uiScale, colour, text);           
         }
 
         public void DisplayLives()
@@ -584,15 +520,6 @@ namespace Asteroids
             float px = 20;
             float py = StateManager.GraphicsDevice.Viewport.Height - 50;
             LinkedList<Vector2> lineList = GetPlayerShip();
-
-
-
-            //text = "Press ESC To Exit";
-            //px = (float)(
-            //    (StateManager.GraphicsDevice.Viewport.Width / 2) -
-            //    ((Font.TextWidth(uiScale, text)) / 2));
-            //py += 50;
-            //Font.WriteText(pb, px, py, uiScale, colour, text);
 
             for (int i = 1; i <= lives; i++)
             {
@@ -610,20 +537,11 @@ namespace Asteroids
                         (float)Math.Cos(rotate);
 
                     pb.AddVertex(new Vector2(lifePosition.X + (Xrotated * 3f),
-                        lifePosition.Y + (Yrotated * 3f)), colour);
-
-                    
+                        lifePosition.Y + (Yrotated * 3f)), colour);                    
                 }
                 px += 40;
-
             }
-
         }
-
-
-        #endregion
-
-        #region Converstion Methods (GetLanderForCollision, ConvertLanderLine2D, ConvertAngleDegrees)
 
         public LinkedList<Vector2> GetLanderForCollision()
         {
@@ -682,11 +600,7 @@ namespace Asteroids
         {
             return rotation * (180 / Math.PI);
         }
-
-        #endregion
-
-        #region Landing/Crashing Methods 
-
+     
         public bool CheckLanding()
         {
             if ((ConvertAngleDegrees() > 355 || ConvertAngleDegrees() < 5) && Math.Abs(velocity) < 3)
@@ -704,25 +618,12 @@ namespace Asteroids
             if(!crashed)
                 Lives--;
 
-
             crashed = true;
 
             thrustPower = 0.0f;
             velocity = 0;
             explosionCounter = 0;
-
-            var instance = soundEffects[0].CreateInstance();
-            if (instance.State != SoundState.Playing)
-            {
-                instance.IsLooped = false;
-                instance.Play();
-            }
         }
-
-
-        #endregion
-
-        #region Calculation/Input Methods (CheckRotation, AddScore, VelocityCalculation, CheckInput, RecalculatePosition)
 
         public void CheckRotation()
         {
@@ -741,9 +642,24 @@ namespace Asteroids
         }
 
         public void AddScore(int addedScore)
-        {
-            
+        {            
             score += addedScore;
+        }
+
+        public void AddLife()
+        {
+            if (score >= (tempScore * 1000))
+            {
+                tempScore++;
+                lives++;
+                
+                var victorySound = soundEffects[1].CreateInstance();
+                if (victorySound.State != SoundState.Playing)
+                {
+                    victorySound.IsLooped = false;
+                    victorySound.Play();
+                }
+            }            
         }
 
         public void VelocityCalculation()
@@ -796,17 +712,7 @@ namespace Asteroids
                         instance.Play();
                     }
                 }
-                else
-                {
-                    //Take a Look at this. Maybe add an If statement above that checks if the Space Bar was previously pressed. If it was, then set thrustPower to 0.
-                    //thrustPower -= thrustPowerIncrement / 5;
-
-                    //if (thrustPower < 0)
-                    //{
-                    //    thrustPower = 0;
-                    //}
-                }
-                //LOOK INTO THIS AS WELL
+                
                 if (Keyboard.GetState().IsKeyUp(Keys.Space))
                 {
                     thrustPower -= thrustPowerIncrement / 5;
@@ -822,7 +728,12 @@ namespace Asteroids
                 {
                     instance.Stop();
                 }
-
+                
+                if (Keyboard.GetState().IsKeyDown(Keys.Q))
+                {
+                    score += 1000;
+                }
+                
                 #region Rotational Controls
 
                 if (!crashed && !landed)
@@ -830,15 +741,12 @@ namespace Asteroids
                     if (Keyboard.GetState().IsKeyDown(Keys.Left))
                     {
                         rotation -= 0.1f;
-
                     }
 
                     if (Keyboard.GetState().IsKeyDown(Keys.Right))
                     {
                         rotation += 0.1f;
                     }
-
-
                 }
 
                 #endregion
@@ -873,33 +781,9 @@ namespace Asteroids
 
                 Vector2 currentDirection = Vector2.Transform(UP, rotMatrix);
                 currentDirection *= thrustPower;
-                position += currentDirection;
-
-                //Console.WriteLine($"PLAYERSHIP rotation {rotation}__________________________________________________");
-
-                //position += DOWN * velocity;
-
-                //if (thrustPower <= 0)
-                //{
-                //    gravityTime += gameTime.ElapsedGameTime;
-
-                //    if (gravityTime > TimeSpan.FromSeconds(.1))
-                //    {
-                //        //To Do: Add in Terminal Velocity                        
-                //        gravityTime -= TimeSpan.FromSeconds(.1);
-                //        velocity += (gravityConstant / 10);
-                //    }
-                //}
-                //else
-                //{
-                //    gravityTime = TimeSpan.Zero;
-
-                //    velocity = gravityConstant;
-                //}
+                position += currentDirection;                
             }
         }
-
-        #endregion
 
         public void CheckPosition()
         {
@@ -921,5 +805,22 @@ namespace Asteroids
             }
         }
 
+        public void DemoRotation(double angleInDegrees)
+        {
+            Random rand = new Random();
+            int leftOrRight = rand.Next(0, 2);
+            
+            while ((angleInDegrees > rotation + .2) || (angleInDegrees < rotation - .2))
+            {
+                if (leftOrRight == 0)
+                {
+                    rotation += .1f;
+                }
+                else
+                {
+                    rotation += .1f;
+                }
+            }
+        }
     }
 }

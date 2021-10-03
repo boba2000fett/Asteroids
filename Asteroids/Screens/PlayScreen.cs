@@ -17,8 +17,6 @@ namespace Asteroids.Screens
 {
     public class PlayScreen : GameScreen
     {
-        #region Variables
-
         SpriteBatch spriteBatch;
         int counter;
         bool landed;
@@ -27,8 +25,6 @@ namespace Asteroids.Screens
         Laser laser;
 
         EnemyShip enemyShip;
-
-        //LinkedList<Laser> activeLasers;
 
         LinkedList<Laser> activePlayerLasers;
         LinkedList<Laser> activeEnemyLasers;
@@ -44,20 +40,22 @@ namespace Asteroids.Screens
         LinkedList<LinkedList<Line2D>> activeEnemyShipsList;
         LinkedList<Rocks> tempActiveRocks = new LinkedList<Rocks>();
 
+        LinkedList<Explosion> activeExplosion;
+
         HighScore highScore;
 
         TimeSpan elapsedTime;
         TimeSpan enemyShipTime;
-        TimeSpan enemyShipFireTime;
+        TimeSpan enemyShipFireTime;        
 
         int randomEnemyShipSpawnTime;
         int randomEnemyShipFireTime;
 
         bool testHit = false;
 
-        #endregion
 
-        #region Constructor
+        List<Song> songs;
+        List<SoundEffect> soundEffects;
 
         public PlayScreen()
         {
@@ -70,47 +68,33 @@ namespace Asteroids.Screens
             highScore = highScoreObject;
         }
 
-
-        #endregion
-
-        #region Standard MonoGame Methods (LoadContent, Update, Draw)
-
-
         public override void LoadContent()
         {
-            //We are using StateManager to manage the States of the game, which operates like a stack
+            songs = new List<Song>();
+            soundEffects = new List<SoundEffect>();
+
+
+            songs.Add(StateManager.Game.Content.Load<Song>("2020-06-18_-_8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda"));
+            
+            soundEffects.Add(StateManager.Game.Content.Load<SoundEffect>("SoundEffects/PlayerShoot"));
+            soundEffects.Add(StateManager.Game.Content.Load<SoundEffect>("SoundEffects/EnemyShoot"));
+            soundEffects.Add(StateManager.Game.Content.Load<SoundEffect>("SoundEffects/EnemyShipExplosionSFX"));
+            soundEffects.Add(StateManager.Game.Content.Load<SoundEffect>("SoundEffects/PlayerShipExplosionSFX"));
+            soundEffects.Add(StateManager.Game.Content.Load<SoundEffect>("SoundEffects/RockExplosionSFX"));
+            soundEffects.Add(StateManager.Game.Content.Load<SoundEffect>("explosion"));            
+
             spriteBatch = new SpriteBatch(StateManager.GraphicsDevice);
 
-            playerShip1 = new PlayerShip(StateManager.Game);
+            playerShip1 = new PlayerShip(StateManager.Game, false);
             playerShip1.Initialize();
-
-            //activeLasers = new LinkedList<Laser>();
 
             activePlayerLasers = new LinkedList<Laser>();
             activeEnemyLasers = new LinkedList<Laser>();
 
             activeRocks = new LinkedList<Rocks>();
 
-            Rocks rock1 = new Rocks(StateManager.Game, 600, 50, (float)(Math.PI / 180), 1, 3);
-            rock1.Initialize();
-            activeRocks.AddLast(rock1);
-
-            Rocks rock2 = new Rocks(StateManager.Game, 300, 300, (float)(135 * Math.PI / 180), 1, 3);
-            rock2.Initialize();
-            activeRocks.AddLast(rock2);
-
-            Rocks rock3 = new Rocks(StateManager.Game, 0, 0, (float)(90 * Math.PI / 180), 1, 3);
-            rock3.Initialize();
-            activeRocks.AddLast(rock3);
-
-            Rocks rock4 = new Rocks(StateManager.Game, 400, 400, (float)(300 * Math.PI / 180), 1, 3);
-            rock4.Initialize();
-            activeRocks.AddLast(rock4);
-
-            Rocks rock5 = new Rocks(StateManager.Game, 10, 600, (float)(200 * Math.PI / 180), 1, 3);
-            rock5.Initialize();
-            activeRocks.AddLast(rock5);
-
+            activeExplosion = new LinkedList<Explosion>();
+        
             activeEnemyShips = new LinkedList<EnemyShip>();
 
             RandomEnemyShipSpawnVariables(out int test, out int test2);
@@ -118,53 +102,50 @@ namespace Asteroids.Screens
 
             enemyShipTime = TimeSpan.Zero;
             enemyShipFireTime = TimeSpan.Zero;
-
         }
 
         public override void Update(GameTime gameTime, StateManager screen,
             GamePadState gamePadState, MouseState mouseState,
             KeyboardState keyState, InputHandler input)
-        {
-
-            /*
-            Laser Collision: l1.StartX (238.5262) l1.StartY (283.2247) l1.EndX (238.5262) l1.EndY (303.2247)
-            Rock Collision:  l2.StartX (300) l2.StartY (375) l2.EndX (300) l2.EndY (300)
-             */
-            //(322.6734) l1.StartY (329.3851) l1.EndX (303.6414) l1.EndY (323.2384)
-            //Console.WriteLine(Line2D.Intersects(new Line2D(322.6734f, 329.3851f, 303.6414f, 323.2384f),
-            //     new Line2D(272, 304, 296, 304)));
+        {            
+            if (MediaPlayer.State == MediaState.Stopped)
+            {
+                MediaPlayer.Play(songs[0]);
+            }
+            else if (MediaPlayer.State == MediaState.Paused)
+            {
+                MediaPlayer.Resume();
+            }
 
             if (!playerShip1.gameEnded)
             {
-                //Only Active During Play
                 if (input.KeyboardState.WasKeyPressed(Keys.P))
                 {
                     PauseScreen pause = new PauseScreen();
                     screen.Push(pause);
+                    MediaPlayer.Pause();
                 }
-                //Only Active During Play
                 if (input.KeyboardState.WasKeyPressed(Keys.Escape))
                 {
                     screen.Pop();
                     AttractScreen attract = new AttractScreen(highScore);
                     screen.Push(attract);
+                    MediaPlayer.Stop();
                 }
 
 
                 //Check Collision
                 if (!playerShip1.crashed)
                 {
-                    //Only Active During Play
                     if (input.KeyboardState.WasKeyPressed(Keys.Enter))
                     {
-                        //Console.WriteLine($"playerShip1.rotation: {playerShip1.Rotation}");
                         if (activePlayerLasers.Count() < 1)
                         {
-                            //activeLasers.First.Value.Dispose();
-                            //activeLasers.Remove(activeLasers.First);
                             laser = new Laser(StateManager.Game, playerShip1.position.X, playerShip1.position.Y, playerShip1.Rotation, true);
                             laser.Initialize();
                             activePlayerLasers.AddLast(laser);
+
+                            PlaySoundEffect(0);
                         }
                     }
 
@@ -177,38 +158,37 @@ namespace Asteroids.Screens
                         elapsedTime = TimeSpan.Zero;
                     }
                 }
+
+                playerShip1.AddLife();
             }
-            else //If the Game Has ended
+            else 
+            //If the Game Has ended
             {
-                /*if(player runs out of lives)
-                    if(player qualifies for High Score)
-                        Send them to High Score Screen
-                    else
-                        Send them to Attract Screen */
                 if (highScore.CheckScore(playerShip1.score))
                 {
+                    //Making Adjustments to HighScore Object to Enter High Score Screen
                     highScore.score = playerShip1.score;
                     highScore.selection = true;
+                    
+                    //Add HighScore Screen to Stack and Pop PlayScreen.
                     screen.Pop();
                     HighScoreScreen highScoreScreen = new HighScoreScreen(highScore);
                     screen.Push(highScoreScreen);
+                    MediaPlayer.Stop();
+                    return;
                 }
                 else
                 {
                     screen.Pop();
                     AttractScreen attract = new AttractScreen(highScore);
                     screen.Push(attract);
+                    MediaPlayer.Stop();
+                    return;
                 }
-
             }
-
-            //Updating Objects
+            
+            #region Updating Objects
             playerShip1.Update(gameTime);
-
-            //if (activePlayerLasers.Count > 0)
-            //{
-            //    activePlayerLasers.First.Value.Update(gameTime);
-            //}
 
             foreach (Laser l in activePlayerLasers)
             {
@@ -219,11 +199,11 @@ namespace Asteroids.Screens
             {
                 activeEnemyLasers.First.Value.Update(gameTime);
             }
+
             if (activeEnemyShips.Count > 0)
             {
                 activeEnemyShips.First.Value.Update(gameTime);
             }
-
 
             if (activeRocks.Count > 0)
             {
@@ -233,21 +213,101 @@ namespace Asteroids.Screens
                 }
             }
 
+            if(activeExplosion.Count > 0)
+            {
+                foreach (Explosion ex in activeExplosion)
+                {
+                    ex.Update(gameTime);
+                }
+            }
+
+            Explosion[] activeExplosionsArray = activeExplosion.ToArray();
+            for (int i = 0; i < activeExplosionsArray.Length; i++)
+            {
+                if (activeExplosionsArray[i].finished)
+                {
+                    activeExplosion.Remove(activeExplosionsArray[i]);
+                }
+            }
+            #endregion
 
             #region Determine if to add Rocks or EnemyShip
+
+            #region Add Rocks
             if (activeRocks.Count < 1)
             {
                 Random rand = new Random();
 
                 int positionX = 0;
                 int positionY = 0;
+                int topAndBottomBorder;
+                int leftAndRightBorder;
+                int verticleOrHorizontal;
+
                 float angle = 0;
-                while (activeRocks.Count < 6)
+                int numberOfRocks = 6;
+
+                if (playerShip1.score < 1000)
                 {
+                    numberOfRocks = rand.Next(5,8);
+                }
+                else if (playerShip1.score < 2000)
+                {
+                    numberOfRocks = rand.Next(6,10);
+                }
+                else if (playerShip1.score < 3000)
+                {
+                    numberOfRocks = rand.Next(7,12);
+                }
+                else if (playerShip1.score > 3000)
+                {
+                    numberOfRocks = rand.Next(8,15);
+                }
+
+                while (activeRocks.Count < numberOfRocks)
+                {
+                    #region Spawn Rocks
+
                     do
                     {
-                        positionX = rand.Next(0, StateManager.GraphicsDevice.Viewport.Width);
-                        positionY = rand.Next(0, StateManager.GraphicsDevice.Viewport.Height);
+                        verticleOrHorizontal = rand.Next(0, 2);
+                        topAndBottomBorder = rand.Next(0, 2);
+                        leftAndRightBorder = rand.Next(0, 2);
+
+                        if (verticleOrHorizontal == 0)
+                        //Rock Spawns on the Top or Bottom Side of the Screen
+                        {
+                            if (topAndBottomBorder == 0)
+                            //Top Screen
+                            {
+                                positionX = rand.Next(0, StateManager.GraphicsDevice.Viewport.Width);
+                                positionY = 0;
+                            }
+                            else
+                            //Bottom Screen
+                            {
+                                positionX = rand.Next(0, StateManager.GraphicsDevice.Viewport.Width);
+                                positionY = StateManager.GraphicsDevice.Viewport.Height;
+                            }
+                        }
+                        else
+                        //Rock Spawns on the Left or Bottom Side of the Screen
+                        {
+                            if (leftAndRightBorder == 0)
+                            //Left Side
+                            {
+                                positionX = 0;
+                                positionY = rand.Next(0, StateManager.GraphicsDevice.Viewport.Height);
+
+                            }
+                            else
+                            //Right Side
+                            {
+                                positionX = StateManager.GraphicsDevice.Viewport.Width;
+                                positionY = rand.Next(0, StateManager.GraphicsDevice.Viewport.Height);
+
+                            }
+                        }
                     } while (
                     (Math.Abs(positionX - playerShip1.position.X) < 100) &&
                     (Math.Abs(positionY - playerShip1.position.Y) < 100));
@@ -258,79 +318,77 @@ namespace Asteroids.Screens
                     newRock.Initialize();
                     activeRocks.AddLast(newRock);
 
+                    if (playerShip1.score < 1000)
+                    {
+                        newRock.MAX_THRUST_POWER = 1;
+                    }
+                    else if (playerShip1.score < 2000)
+                    {
+                        newRock.MAX_THRUST_POWER = 2;
+                    }
+                    else if (playerShip1.score < 3000)
+                    {
+                        newRock.MAX_THRUST_POWER = 3;
+                    }
+                    else if (playerShip1.score > 3000)
+                    {
+                        newRock.MAX_THRUST_POWER = 5;
+                    }
+
+                    #endregion
                 }
-                //StateManager.GraphicsDevice.Viewport.Width;
             }
+            #endregion
 
-
+            #region Add Enemy Ships
 
             //If there are no ships currently active
             if (activeEnemyShips.Count < 1)
             {
                 if (enemyShipTime > TimeSpan.FromSeconds(randomEnemyShipSpawnTime))
-                {
-                    //if (testHit)
-                    //{
-                        #region Instantiate New Enemy Ship Object
-                        int xPos;
-                        int yPos;
-                        //Randomly generate which side it starts(X), and then which vertical position it starts at (Y)
-                        RandomEnemyShipSpawnVariables(out xPos, out yPos);
+                {                    
+                    #region Instantiate New Enemy Ship Object
 
-                        EnemyShip enemyShip = new EnemyShip(StateManager.Game, 0, yPos, (float)(90 * Math.PI / 180), 1, 3);
-                        enemyShip.Initialize();
-                        activeEnemyShips.AddLast(enemyShip);
+                    int xPos;
+                    int yPos;
+                    //Randomly generate which side it starts(X), and then which vertical position it starts at (Y)
+                    RandomEnemyShipSpawnVariables(out xPos, out yPos);
 
-                        enemyShipTime = TimeSpan.Zero;
+                    EnemyShip enemyShip = new EnemyShip(StateManager.Game, 0, yPos, (float)(90 * Math.PI / 180), 1, 3);
+                    enemyShip.Initialize();
+                    activeEnemyShips.AddLast(enemyShip);
 
-                        if (xPos == 1)
-                        {
-                            enemyShip.MAX_THRUST_POWER *= -1;
-                        }
-                        #endregion
+                    enemyShipTime = TimeSpan.Zero;
 
-                    //}
-                    //else
-                    //{
-                    //    #region Testing Collision
-                    //    EnemyShip enemyShip = new EnemyShip(StateManager.Game, 300, 300, (float)(90 * Math.PI / 180), 1, 3);
-                    //    enemyShip.Initialize();
-                    //    enemyShip.MAX_THRUST_POWER = 0;
-                    //    activeEnemyShips.AddLast(enemyShip);
-                    //    #endregion
-                    //}
+                    if (xPos == 1)
+                    {
+                        enemyShip.MAX_THRUST_POWER *= -1;
+                    }
 
-
-
+                    if (playerShip1.score < 1000)
+                    {
+                        enemyShip.MAX_THRUST_POWER = 1;
+                    }
+                    else if (playerShip1.score < 2000)
+                    {
+                        enemyShip.MAX_THRUST_POWER = 2;
+                    }
+                    else if (playerShip1.score < 3000)
+                    {
+                        enemyShip.MAX_THRUST_POWER = 3;
+                    }
+                    else if (playerShip1.score > 3000)
+                    {
+                        enemyShip.MAX_THRUST_POWER = 5;
+                    }
+                    #endregion
                 }
 
                 enemyShipTime += gameTime.ElapsedGameTime;
             }
             //If there are ships currently active
             else
-            {
-                //Add Fire Logic Here.
-                /*
-                If above enemyShipFireTime;
-                    Regenerate enemyShipFireTime;
-                    Angle Towards PlayerShip
-                    int x1 = activeEnemyShips.First.Value.X;
-                    int y1 = activeEnemyShips.First.Value.Y;
-                    int x2 = playerShip.X;
-                    int y2 = playerShip.Y;
-
-                    m = (y2 - y1)/(x2 - x1);
-                    theta = inverseTan(m);
-
-                    Fire Laser.
-                    laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, theta, false);
-                    laser.Initialize();
-                    activeLasers.AddLast(laser);
-                    enemyShipTime = TimeSpan.Zero;
-                    else
-                    add to enemyShipFireTime;
-
-                    */
+            {                
                 if (enemyShipFireTime > TimeSpan.FromSeconds(randomEnemyShipFireTime))
                 {
                     //Regenerate randomEnemyShipFireTime
@@ -343,15 +401,16 @@ namespace Asteroids.Screens
                     double m = (y2 - y1) / (x2 - x1);
                     double theta = Math.Atan(m);
                     theta -= (Math.PI / 2);
-                    //Fire Laser
                     
+                    //Fire Laser
                     laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, (float)theta, false);
-                    //laser = new Laser(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, (float)(Math.PI / 2), false);
                     
                     laser.Initialize();
                     activeEnemyLasers.AddLast(laser);
                     //Reset enemyShipFireTime
                     enemyShipFireTime = TimeSpan.Zero;
+
+                    PlaySoundEffect(1);
                 }
                 else
                 {
@@ -361,24 +420,20 @@ namespace Asteroids.Screens
 
             #endregion
 
+            #endregion
         }
 
         public override void Draw(GameTime gameTime)
         {
-            //lander.Draw(gameTime);
-
-
-
-            playerShip1.Draw(gameTime);
-            //if (activePlayerLasers.Count > 0)
-            //{
-            //    activePlayerLasers.First.Value.Draw(gameTime);
-            //}
+            #region Draw Objects
+            
+            playerShip1.Draw(gameTime);           
+         
             foreach (Laser l in activePlayerLasers)
             {
                 l.Draw(gameTime);
             }
-
+            
             if (activeEnemyLasers.Count > 0)
             {
                 activeEnemyLasers.First.Value.Draw(gameTime);
@@ -396,12 +451,15 @@ namespace Asteroids.Screens
                 }
             }
 
-            //Iterate through Rocks Linked List
-            //Iterate through EnemyShip LinkedList
+            if (activeExplosion.Count > 0)
+            {
+                foreach (Explosion ex in activeExplosion)
+                {
+                    ex.Draw(gameTime);
+                }
+            }
 
             #endregion
-
-
         }
 
         public LinkedList<LinkedList<Line2D>> ConvertRocksLine2D(LinkedList<LinkedList<Vector2>> rocks)
@@ -418,39 +476,30 @@ namespace Asteroids.Screens
             LinkedList<Line2D> enemyShipCollision = new LinkedList<Line2D>();
             LinkedList<Line2D> laserCollision = new LinkedList<Line2D>();
 
-
             #region Player Lasers Collision
-            //if (activePlayerLasers.Count > 0)
-            //{
-            //    if (activePlayerLasers.First.Value.CheckLaser() == true) //Make a check in Laser so that the laser can only run for 5 seconds.
-            //    {
-            //        activePlayerLasers.First.Value.Dispose();
-            //        activePlayerLasers.Remove(activePlayerLasers.First.Value);
-            //    }
-            //}
 
-         
+            #region  Check if Lasers are Still Active
+
             Laser[] activePlayerLasersArray = activePlayerLasers.ToArray();
             for (int i = 0; i < activePlayerLasersArray.Count(); i++)
             {
                 if (activePlayerLasersArray[i].CheckLaser() == true) //Make a check in Laser so that the laser can only run for 5 seconds.
                 {
-                    
                     activePlayerLasers.Remove(activePlayerLasersArray[i]);
                     activePlayerLasersArray[i].Dispose();
                 }
             }
+            
+            #endregion
 
+            #region Collision Between Player Laser and EnemyShip
 
-                #region NEW Collision Between Player Laser and EnemyShip
-                #region Multiple Lasers
-                foreach (Laser l in activePlayerLasers)
+            foreach (Laser l in activePlayerLasers)
             {
                 float[] xCoordinates = new float[8];
                 float[] yCoordinates = new float[8];
                 laserCollision = l.ConvertLaserLine2D();
-
-                //activePlayerLaser
+                
                 if (activeEnemyShips.Count > 0)
                 {
                     enemyShipCollision = activeEnemyShips.First.Value.ConvertEnemyShipLine2D();
@@ -465,63 +514,30 @@ namespace Asteroids.Screens
                             (GFG.check(xCoordinates[4], yCoordinates[4], xCoordinates[5], yCoordinates[5], xCoordinates[6], yCoordinates[6], xCoordinates[7], yCoordinates[7], l1.EndX, l1.EndY)
                             ))
                         {
-                            //e.DestroyShip();
-                            //Remove e from activeEnemyShips LinkedList
+                            Explosion explode = new Explosion(StateManager.Game, activeEnemyShips.First.Value.position.X, activeEnemyShips.First.Value.position.Y, 0);
+                            explode.Initialize();
+                            activeExplosion.AddLast(explode);
+
                             activeEnemyShips.First.Value.Dispose();
                             activeEnemyShips.Remove(activeEnemyShips.First.Value);
-                            //testHit = true;
+
+                            PlaySoundEffect(2);
+
                             return;
                         }
                     }
                 }
             }
-            #endregion
-            #region Old with Only 1 PlayerLaser
-            //if (activePlayerLasers.Count > 0)
-            //{
-            //    float[] xCoordinates = new float[8];
-            //    float[] yCoordinates = new float[8];
-            //    laserCollision = activePlayerLasers.First.Value.ConvertLaserLine2D();
-
-            //    //activePlayerLaser
-            //    if (activeEnemyShips.Count > 0)
-            //    {
-            //        enemyShipCollision = activeEnemyShips.First.Value.ConvertEnemyShipLine2D();
-            //        foreach (Line2D l1 in laserCollision)
-            //        {                        
-            //            activeEnemyShips.First.Value.GetRectanglePositions(out xCoordinates, out yCoordinates);
-
-            //            if(
-            //                (GFG.check(xCoordinates[0], yCoordinates[0], xCoordinates[1], yCoordinates[1], xCoordinates[2], yCoordinates[2], xCoordinates[3], yCoordinates[3], l1.StartX, l1.StartY))||
-            //                (GFG.check(xCoordinates[0], yCoordinates[0], xCoordinates[1], yCoordinates[1], xCoordinates[2], yCoordinates[2], xCoordinates[3], yCoordinates[3], l1.EndX, l1.EndX)) ||
-            //                (GFG.check(xCoordinates[4], yCoordinates[4], xCoordinates[5], yCoordinates[5], xCoordinates[6], yCoordinates[6], xCoordinates[7], yCoordinates[7], l1.StartX, l1.StartY)) ||
-            //                (GFG.check(xCoordinates[4], yCoordinates[4], xCoordinates[5], yCoordinates[5], xCoordinates[6], yCoordinates[6], xCoordinates[7], yCoordinates[7], l1.EndX, l1.EndY)
-            //                ))
-            //            {                            
-            //                //e.DestroyShip();
-            //                //Remove e from activeEnemyShips LinkedList
-            //                activeEnemyShips.First.Value.Dispose();
-            //                activeEnemyShips.Remove(activeEnemyShips.First.Value);
-            //                //testHit = true;
-            //                return;
-            //            }
-            //        }
-            //    }
-            //}
-            #endregion
-
+            
             #endregion
 
 
-
-            #region NEW Collision Between Rock and Player Laser
-            #region New Version with Multiple Player Lasers
+            #region Collision Between Rock and Player Laser
+           
             foreach (Laser l in activePlayerLasers)
             {
                 laserCollision = l.ConvertLaserLine2D();
 
-                //This is on the activePlayerLaser
-                //Rocks and Laser Collision
                 Rocks[] activeRocksArray = activeRocks.ToArray();
                 for (int i = 0; i < activeRocksArray.Count(); i++)
                 {
@@ -535,8 +551,6 @@ namespace Asteroids.Screens
                     float angle2 = 0f;
                     int location = 0;
                     int index = 1;
-
-                    //Console.WriteLine($"Rock Rotation{activeRocksArray[i].rotation}");
 
                     foreach (Line2D l1 in laserCollision)
                     {
@@ -552,139 +566,72 @@ namespace Asteroids.Screens
 
                             if (activeRocksArray[i].size > 1)
                             {
-                                Console.WriteLine($"Before Collision Check: {activeRocks.Count}");
-
                                 Rocks newRock1 = new Rocks(angle2, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
                                 newRock1.Initialize();
                                 activeRocks.AddLast(newRock1);
-                                newRock1.MAX_THRUST_POWER = 1f;
                                 Rocks newRock2 = new Rocks(angle1, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
                                 newRock2.Initialize();
                                 activeRocks.AddLast(newRock2);
-                                newRock2.MAX_THRUST_POWER = 1f;
+                                
+                                Explosion explode = new Explosion(StateManager.Game, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, 0);
+                                explode.Initialize();
+                                activeExplosion.AddLast(explode);
+
+                                if (playerShip1.score < 1000)
+                                {
+                                    newRock1.MAX_THRUST_POWER = 1f;
+                                    newRock2.MAX_THRUST_POWER = 1f;
+                                }
+                                else if (playerShip1.score < 2000)
+                                {
+                                    newRock1.MAX_THRUST_POWER = 2f;
+                                    newRock2.MAX_THRUST_POWER = 2f;
+                                }
+                                else if (playerShip1.score < 3000)
+                                {
+                                    newRock1.MAX_THRUST_POWER = 3f;
+                                    newRock2.MAX_THRUST_POWER = 3f;
+                                }
+                                else if (playerShip1.score > 3000)
+                                {
+                                    newRock1.MAX_THRUST_POWER = 10f;
+                                    newRock2.MAX_THRUST_POWER = 10f;
+                                }
+
                                 activeRocks.Remove(activeRocksArray[i]);
                                 activeRocksArray[i].Dispose();
-
-                                Console.WriteLine($"After Collision Check: {activeRocks.Count}");
                             }
                             else
                             {
+                                Explosion explode = new Explosion(StateManager.Game, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, 0);
+                                explode.Initialize();
+                                activeExplosion.AddLast(explode);
+
                                 activeRocks.Remove(activeRocksArray[i]);
-                                activeRocksArray[i].Dispose();
-                                Console.WriteLine($"activeRocks Count{activeRocks.Count}");
+                                activeRocksArray[i].Dispose();                                
                             }
+
+                            PlaySoundEffect(4);
 
                             l.Dispose();
                             activePlayerLasers.Remove(l);
                             return;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Failed");
-                        }
-
+                        }                        
                     }
                 }
             }
-            #endregion
-            #region OLD version with Only 1 Player Laser
-            //if (activePlayerLasers.Count > 0)
-            //{
-            //    laserCollision = activePlayerLasers.First.Value.ConvertLaserLine2D();
-
-            //    //This is on the activePlayerLaser
-            //    //Rocks and Laser Collision
-            //    Rocks[] activeRocksArray = activeRocks.ToArray();
-            //    for (int i = 0; i < activeRocksArray.Count(); i++)
-            //    {
-            //        float[] xCoordinates = new float[4];
-            //        float[] yCoordinates = new float[4];
-
-            //        Random rand = new Random();
-            //        rockCollision = activeRocksArray[i].RocksSquareCollision();
-
-            //        float angle1 = 0f;
-            //        float angle2 = 0f;
-            //        int location = 0;
-            //        int index = 1;
-
-            //        //Console.WriteLine($"Rock Rotation{activeRocksArray[i].rotation}");
-
-            //        foreach (Line2D l1 in laserCollision)
-            //        {
-            //            activeRocksArray[i].GetRectanglePositions(out xCoordinates, out yCoordinates);
-            //            if (
-            //                (GFG.PointInRectangle(new Vector2(xCoordinates[0], yCoordinates[0]), new Vector2(xCoordinates[1], yCoordinates[1]), new Vector2(xCoordinates[2], yCoordinates[2]), new Vector2(xCoordinates[3], yCoordinates[3]), new Vector2(l1.StartX, l1.StartY))) ||
-            //                (GFG.PointInRectangle(new Vector2(xCoordinates[0], yCoordinates[0]), new Vector2(xCoordinates[1], yCoordinates[1]), new Vector2(xCoordinates[2], yCoordinates[2]), new Vector2(xCoordinates[3], yCoordinates[3]), new Vector2(l1.EndX, l1.EndY)))
-            //                )
-            //            {                        
-            //                CheckAngle(activeRocksArray[i].rotation, out location, out angle1, out angle2);
-
-            //                playerShip1.AddScore(activeRocksArray[i].score);
-
-            //                if (activeRocksArray[i].size > 1)
-            //                {
-            //                    Console.WriteLine($"Before Collision Check: {activeRocks.Count}");
-
-            //                    Rocks newRock1 = new Rocks(angle2, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
-            //                    newRock1.Initialize();
-            //                    activeRocks.AddLast(newRock1);
-            //                    newRock1.MAX_THRUST_POWER = 1f;
-            //                    Rocks newRock2 = new Rocks(angle1, activeRocksArray[i].size - 1, activeRocksArray[i].position.X, activeRocksArray[i].position.Y, activeRocksArray[i].typeOfRock, StateManager.Game);
-            //                    newRock2.Initialize();
-            //                    activeRocks.AddLast(newRock2);
-            //                    newRock2.MAX_THRUST_POWER = 1f;
-            //                    activeRocks.Remove(activeRocksArray[i]);
-            //                    activeRocksArray[i].Dispose();
-
-            //                    Console.WriteLine($"After Collision Check: {activeRocks.Count}");
-            //                }
-            //                else
-            //                {
-            //                    activeRocks.Remove(activeRocksArray[i]);
-            //                    activeRocksArray[i].Dispose();
-            //                    Console.WriteLine($"activeRocks Count{activeRocks.Count}");
-            //                }
-
-            //                activePlayerLasers.First.Value.Dispose();
-            //                activePlayerLasers.Remove(activePlayerLasers.First.Value);
-            //                return;
-            //            }
-            //            else
-            //            {
-            //                Console.WriteLine("Failed");
-            //            }
-
-            //        }
-            //    }
-            //}
-            #endregion
-            #endregion
-
 
             #endregion
 
-            ////Check Collision between EnemyShip and Player Laser
-            //foreach (EnemyShip e in activeEnemyShips)
-            //{
-            //    //enemyShipCollision = e.ConvertEnemyShipLine2D();
-            //    foreach (Line2D l1 in enemyShipCollision)
-            //    {
-            //        foreach (Line2D l2 in playerShip1List)
-            //        {
-            //            if (Line2D.Intersects(l1, l2))
-            //            {
-            //                playerShip1.CrashShip();
-            //                return;
-            //            }
-            //        }
-            //    }
-            //}
+            #endregion
 
+            #region Enemy Laser Collision
+            
             if (activeEnemyLasers.Count > 0)
             {
                 //This is on both the activePlayerlaser and activeEnemyShip
-                if (activeEnemyLasers.First.Value.CheckLaser() == true) //Make a check in Laser so that the laser can only run for 5 seconds.
+                //Make a check in Laser so that the laser can only run for 5 seconds.
+                if (activeEnemyLasers.First.Value.CheckLaser() == true) 
                 {
                     activeEnemyLasers.First.Value.Dispose();
                     activeEnemyLasers.Remove(activeEnemyLasers.First.Value);
@@ -700,6 +647,7 @@ namespace Asteroids.Screens
                         if (Line2D.Intersects(l1, l2) && !activeEnemyLasers.First.Value.playerLaser)
                         {
                             playerShip1.CrashShip();
+                            PlaySoundEffect(3);
                             activeEnemyLasers.First.Value.Dispose();
                             activeEnemyLasers.Remove(activeEnemyLasers.First.Value);
                             return;
@@ -710,8 +658,9 @@ namespace Asteroids.Screens
 
             }
 
+            #endregion
 
-
+            #region Collision between Rocks and Player Ship
 
             foreach (Rocks r in activeRocks)
             {
@@ -724,11 +673,15 @@ namespace Asteroids.Screens
                         {
 
                             playerShip1.CrashShip();
+                            PlaySoundEffect(5);
                             return;
                         }
                     }
                 }
             }
+
+            #endregion
+  
         }
 
         private void CheckAngle(float radianAngle, out int location, out float angle1, out float angle2)
@@ -791,9 +744,6 @@ namespace Asteroids.Screens
 
             angle1 *= (float)(180 / Math.PI);
             angle2 *= (float)(180 / Math.PI);
-
-
-
 
             #region Planning
             /*            
@@ -894,7 +844,23 @@ namespace Asteroids.Screens
             //Verticle Position on the Screen
             yPos = 0;
 
-            randomEnemyShipSpawnTime = rand.Next(50, 181);
+            if (playerShip1.score < 1000)
+            {
+                randomEnemyShipSpawnTime = rand.Next(50, 181);
+            }
+            else if (playerShip1.score < 2000)
+            {
+                randomEnemyShipSpawnTime = rand.Next(50, 121);
+            }
+            else if (playerShip1.score < 3000)
+            {
+                randomEnemyShipSpawnTime = rand.Next(40, 100);
+            }
+            else if (playerShip1.score > 3000)
+            {
+                randomEnemyShipSpawnTime = rand.Next(20, 70);
+            }
+
             //randomEnemyShipSpawnTime = rand.Next(1, 5);
             //Generate whether or not its on the left side or right side
             lr = rand.Next(0, 2);
@@ -909,8 +875,62 @@ namespace Asteroids.Screens
             Random rand = new Random();
             randomEnemyShipFireTime = rand.Next(1, 6);
         }
-    }
 
+        private void PlaySoundEffect(int soundEffectIndex)
+        {
+            switch (soundEffectIndex)
+            {
+                case 0:
+                    var playerShoot = soundEffects[0].CreateInstance();
+                    if (playerShoot.State != SoundState.Playing)
+                    {
+                        playerShoot.IsLooped = false;
+                        playerShoot.Play();
+                    }
+                    return;
+                case 1:
+                    var enemyShoot = soundEffects[1].CreateInstance();
+                    if (enemyShoot.State != SoundState.Playing)
+                    {
+                        enemyShoot.IsLooped = false;
+                        enemyShoot.Play();
+                    }
+                    return;
+                case 2:
+                    var enemyShipExplosionSFX = soundEffects[2].CreateInstance();
+                    if (enemyShipExplosionSFX.State != SoundState.Playing)
+                    {
+                        enemyShipExplosionSFX.IsLooped = false;
+                        enemyShipExplosionSFX.Play();
+                    }
+                    return;
+                case 3:
+                    var playerShipExplosionLaserSFX = soundEffects[3].CreateInstance();
+                    if (playerShipExplosionLaserSFX.State != SoundState.Playing)
+                    {
+                        playerShipExplosionLaserSFX.IsLooped = false;
+                        playerShipExplosionLaserSFX.Play();
+                    }
+                    return;
+                case 4:
+                    var rockExplosionSFX = soundEffects[4].CreateInstance();
+                    if (rockExplosionSFX.State != SoundState.Playing)
+                    {
+                        rockExplosionSFX.IsLooped = false;
+                        rockExplosionSFX.Play();
+                    }
+                    return;
+                case 5:
+                    var playerShipExplosionRockSFX = soundEffects[5].CreateInstance();
+                    if (playerShipExplosionRockSFX.State != SoundState.Playing)
+                    {
+                        playerShipExplosionRockSFX.IsLooped = false;
+                        playerShipExplosionRockSFX.Play();
+                    }
+                    return;
+            }
+        }
+    }
 
 
     class GFG
@@ -919,7 +939,7 @@ namespace Asteroids.Screens
         // A utility function to calculate area
         // of triangle formed by (x1, y1),
         // (x2, y2) and (x3, y3)
-        static float area(float  x1, float y1, float x2,
+        static float area(float x1, float y1, float x2,
                           float y2, float x3, float y3)
         {
             return (float)Math.Abs((x1 * (y2 - y3) +
@@ -979,15 +999,15 @@ namespace Asteroids.Screens
 
             // Check if point is in triangle
             if (u >= 0 && v >= 0 && u <= 1 && v <= 1)
-            { 
-                return true; 
+            {
+                return true;
             }
-            else 
-            { 
-                return false; 
+            else
+            {
+                return false;
             }
         }
-    
+
 
 
         public static bool PointInRectangle(Vector2 X, Vector2 Y, Vector2 Z, Vector2 W, Vector2 P)

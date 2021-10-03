@@ -17,19 +17,11 @@ using MyLibrary;
 namespace Asteroids
 {
     class Laser : DrawableGameComponent
-    {
-        #region VARIABLES 
-
-        #region Components
-
+    {        
         private PrimitiveBatch pb;
 
         TimeSpan elapsedTime;
         TimeSpan gravityTime;
-
-        #endregion
-
-        #region PlayerShip Variables
 
         LinkedList<Vector2> laser;
 
@@ -38,29 +30,16 @@ namespace Asteroids
 
         private float uiScale;
 
-        Vector2 center;
-
-        #endregion
-
-        #region Thrust Variables
-
+        Vector2 center;        
         
         public bool isThrusting = false;
         public float thrustPower;
         public float thrustPowerIncrement;
 
         const float MAX_THRUST_POWER = 7.0f;
-        #endregion
-
-        #region Game State Variables
-
-
+        
         public bool crashed = false;
-
-        #endregion 
-
-        #region Velocity Variables
-
+        
         Vector2 UP = new Vector2(0, -1);
         Vector2 DOWN = new Vector2(0, 1);
 
@@ -75,11 +54,6 @@ namespace Asteroids
 
         public readonly bool playerLaser;
 
-        #endregion
-
-        #endregion
-
-        #region Constructor
         public Laser(Game game, float xPosition, float yPosition, float trajectory, bool type) : base(game)
         {
             pb = new PrimitiveBatch(game.GraphicsDevice);
@@ -88,14 +62,10 @@ namespace Asteroids
             playerLaser = type;
             rotation = trajectory;
         }
-
-        #endregion
-
-        #region Standard Monogame Methods (Initialize, LoadContent, Update, Draw)
-
+        
         public override void Initialize()
         {          
-            position = new Vector2(xInitialPos, yInitialPos);//Note: This and Rotation will be passed in when the object is initalizes.
+            position = new Vector2(xInitialPos, yInitialPos);
 
             oldPosition = position;
             newPosition = position;
@@ -103,8 +73,6 @@ namespace Asteroids
             scale = 2f;
 
             center = new Vector2(1, 1);
-
-            //rotation = 0;
 
             laser = GetLaser();
 
@@ -119,15 +87,6 @@ namespace Asteroids
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-        protected override void LoadContent()
-        {
-            
-        }
-
         public override void Update(GameTime gameTime)
         {
             VelocityCalculation();
@@ -138,29 +97,21 @@ namespace Asteroids
 
             CheckPosition();
 
-            //Console.WriteLine($"Laser: PositionX {position.X} PositionY {position.Y}");
-
             elapsedTime += gameTime.ElapsedGameTime;
-
 
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
-        {
-            //GraphicsDevice.Clear(Color.TransparentBlack);
-
+        {           
             pb.Begin(PrimitiveType.LineList);
 
             DrawLaser();
-
-            //DrawLaserCollision();
-
+         
             pb.End();
 
             base.Draw(gameTime);
         }
-
 
         public void DrawLaserCollision()
         {
@@ -169,14 +120,8 @@ namespace Asteroids
             {
                 pb.AddVertex(new Vector2(line.StartX, line.StartY), Color.Coral);
                 pb.AddVertex(new Vector2(line.EndX, line.EndY), Color.Coral);
-
-
             }
         }
-
-        #endregion
-
-        #region Drawing Laser Methods (DrawLaser, GetSquare, GetLaser)
 
         public void DrawLaser()
         {
@@ -192,7 +137,6 @@ namespace Asteroids
                 color = Color.Red;
             }
             
-
             foreach (Vector2 v2 in lineList)
             {
                 float Xrotated = center.X + (v2.X - center.X) *
@@ -215,27 +159,9 @@ namespace Asteroids
 
             list.AddLast(new Vector2(1 * scale, 0 * scale));
             list.AddLast(new Vector2(1 * scale, 5 * scale));
-
-            //list.AddLast(new Vector2(0 * scale, 0 * scale));
-            //list.AddLast(new Vector2(10 * scale, 0 * scale));
-
-            //list.AddLast(new Vector2(10 * scale, 0 * scale));
-            //list.AddLast(new Vector2(10 * scale, 10 * scale));
-
-            //list.AddLast(new Vector2(10 * scale, 10 * scale));
-            //list.AddLast(new Vector2(0 * scale, 10 * scale));
-
-            //list.AddLast(new Vector2(0 * scale, 10 * scale));
-            //list.AddLast(new Vector2(0 * scale, 0 * scale));
-
-
-
+           
             return list;
         }
-
-        #endregion
-
-        #region Converstion Methods (GetLaserForCollision, ConvertLaserLine2D, ConvertAngleDegrees)
 
         public LinkedList<Vector2> GetLaserForCollision()
         {
@@ -295,11 +221,6 @@ namespace Asteroids
             return rotation * (180 / Math.PI);
         }
 
-        #endregion
-
-
-        #region Calculation/Input Methods (CheckRotation, AddScore, VelocityCalculation, CheckInput, RecalculatePosition)
-
         public void CheckRotation()
         {
             if (rotation > ((float)(2 * Math.PI)))
@@ -326,23 +247,14 @@ namespace Asteroids
                  (newPosition.Y - oldPosition.Y));
         }
 
-        
-
         public void RecalculatePosition(GameTime gameTime)
         {
-            //if (!crashed)
-            //{
-                Matrix rotMatrix = Matrix.CreateRotationZ(rotation);
+            Matrix rotMatrix = Matrix.CreateRotationZ(rotation);
 
-                Vector2 currentDirection = Vector2.Transform(UP, rotMatrix);
-                currentDirection *= MAX_THRUST_POWER;
-                position += currentDirection;
-
-            //}
+            Vector2 currentDirection = Vector2.Transform(UP, rotMatrix);
+            currentDirection *= MAX_THRUST_POWER;
+            position += currentDirection;
         }
-
-        #endregion
-
 
         public void CheckPosition()
         {
@@ -365,8 +277,7 @@ namespace Asteroids
         }
 
         public bool CheckLaser()
-        {
-            
+        {            
             if (elapsedTime > TimeSpan.FromSeconds(1))
             {
                 return true;
@@ -376,6 +287,5 @@ namespace Asteroids
                 return false;
             }
         }
-
     }
 }

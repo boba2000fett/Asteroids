@@ -15,36 +15,24 @@ namespace Asteroids.Screens
 {
     public class PauseScreen : GameScreen
     {
-        #region Variables
-
         SpriteBatch spriteBatch;
         SpriteFont spriteFont;
         SpriteFont menuFont;
 
         Texture2D backgroundImage;
 
-        #endregion
-
-        #region Constructor
-
         public PauseScreen()
         {
             LoadContent();            
         }
 
-        #endregion
-
-        #region Standard MonoGame Methods (LoadContent, Update, Draw)
-
         public override void LoadContent()
         {
-            //We are using StateManager to manage the States of the game, which operates like a stach
             spriteBatch = new SpriteBatch(StateManager.GraphicsDevice);
             spriteFont = StateManager.Content.Load<SpriteFont>("font");
             menuFont = StateManager.Content.Load<SpriteFont>("menu");
 
             backgroundImage = StateManager.Content.Load<Texture2D>("StarBackground");
-
         }
 
         public override void Update(GameTime gameTime, StateManager screen, 
@@ -54,6 +42,7 @@ namespace Asteroids.Screens
             if (input.KeyboardState.WasKeyPressed(Keys.Escape))
             {                
                 screen.Pop();
+                
             }
         }
 
@@ -75,7 +64,5 @@ namespace Asteroids.Screens
 
             spriteBatch.End();
         }
-
-        #endregion
     }
 }

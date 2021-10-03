@@ -16,19 +16,11 @@ using MyLibrary;
 namespace Asteroids
 {
     class Rocks : DrawableGameComponent
-    {
-        #region VARIABLES 
-
-        #region Components
-
+    {        
         private PrimitiveBatch pb;
 
         TimeSpan elapsedTime;
         TimeSpan gravityTime;
-
-        #endregion
-
-        #region PlayerShip Variables
 
         LinkedList<Vector2> rocks;
 
@@ -37,29 +29,16 @@ namespace Asteroids
 
         private float uiScale;
 
-        Vector2 center;
-
-        #endregion
-
-        #region Thrust Variables
-
+        Vector2 center;        
 
         public bool isThrusting = false;
         public float thrustPower;
         public float thrustPowerIncrement;
 
         public float MAX_THRUST_POWER = 1f;//Remake this into a cosnt
-        #endregion
-
-        #region Game State Variables
-
-
+        
         public bool crashed = false;
-
-        #endregion 
-
-        #region Velocity Variables
-
+        
         Vector2 UP = new Vector2(0, -1);
         Vector2 DOWN = new Vector2(0, 1);
 
@@ -75,17 +54,8 @@ namespace Asteroids
         public readonly int typeOfRock;
         public int size;
 
-        #endregion
-
         public int score;
 
-
-        #endregion
-
-        #region Constructor
-        //r.rotation - (45 * (Math.PI) / 180)), r.size - 1, r.position.X, r.position.Y
-        // float rockRotation, int rockSize, float xPosition, float yPosition, int type, Game game  
-        //Game game, int type, 
         public Rocks(Game game, float xPosition, float yPosition, float rockRotation, int type, int rockSize) : base(game)
         {
             pb = new PrimitiveBatch(game.GraphicsDevice);
@@ -105,15 +75,9 @@ namespace Asteroids
             rotation = rockRotation;
             size = rockSize;
         }
-
-
-        #endregion
-
-        #region Standard Monogame Methods (Initialize, LoadContent, Update, Draw)
-
         public override void Initialize()
         {
-            position = new Vector2(xInitialPos, yInitialPos);//Note: This and Rotation will be passed in when the object is initalizes.
+            position = new Vector2(xInitialPos, yInitialPos);
 
             oldPosition = position;
             newPosition = position;
@@ -134,8 +98,6 @@ namespace Asteroids
             }
             center = new Vector2(1, 1);
 
-            //rotation = 0;
-
             rocks = GetRocks();
 
             elapsedTime = TimeSpan.Zero;
@@ -149,15 +111,6 @@ namespace Asteroids
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-        protected override void LoadContent()
-        {
-
-        }
-
         public override void Update(GameTime gameTime)
         {
             VelocityCalculation();
@@ -168,77 +121,22 @@ namespace Asteroids
 
             CheckPosition();
 
-            //Console.WriteLine($"Rocks: PositionX {position.X} PositionY {position.Y}");
-
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.TransparentBlack);
-
             pb.Begin(PrimitiveType.LineList);
 
             DrawRocks();
 
-            //DrawSquare();
-
-            //DrawRockCollision();
-
-            //pb.AddLine(new Vector2(center.X, center.Y - 10), new Vector2(center.X, center.Y + 10), Color.Violet, 5);
-            //pb.AddLine(new Vector2(center.X - 10, center.Y), new Vector2(center.X + 10, center.Y), Color.Violet, 5);
-
-
-            ////pb.AddVertex(new Vector2(position.X, position.Y - 10), Color.Violet);
-            ////pb.AddVertex(new Vector2(position.X, position.Y + 10), Color.Violet);
-
-            ////pb.AddVertex(new Vector2(position.X - 10, position.Y), Color.Violet);
-            ////pb.AddVertex(new Vector2(position.X + 10, position.Y), Color.Violet);
-
-            //pb.AddVertex(new Vector2(242.1367f, 275.431f), Color.Violet);
-            //pb.AddVertex(new Vector2(242.1367f, 295.431f), Color.Violet);
-
-            //pb.AddVertex(new Vector2(300, 375), Color.Violet);
-            //pb.AddVertex(new Vector2(300, 300), Color.Violet);
-
-            /*
-            Laser Collision: l1.StartX (242.1367, 275.431) l1.EndX (242.1367, 295.431)
-            Rock Collision:  l2.StartX (300, 375) l2.EndX (300, 300)
-             */
             Line2D.Intersects(new Line2D(238.5262f, 283.2247f, 238.5262f, 303.2247f),
                 new Line2D(300, 375, 300, 300));
 
-            #region TESTING
-            float[] xTest = new float[4];
-            float[] yTest = new float[4];
-            GetRectanglePositions(out xTest, out yTest);
-
-
-            for (int i = 0; i < xTest.Length; i++)
-            {
-                if (i < 3)
-                {
-                    pb.AddVertex(new Vector2(xTest[i], yTest[i]), Color.Violet);
-                    pb.AddVertex(new Vector2(xTest[i + 1], yTest[i + 1]), Color.Violet);
-                }
-                else
-                {
-                    pb.AddVertex(new Vector2(xTest[i], yTest[i]), Color.Violet);
-                    pb.AddVertex(new Vector2(xTest[0], yTest[0]), Color.Violet);
-                }
-
-            }
-            #endregion
-
             pb.End();
-
 
             base.Draw(gameTime);
         }
-
-        #endregion
-
-        #region Drawing Rocks Methods (DrawRocks, GetSquare, GetRocks)
 
         public void DrawRocks()
         {
@@ -286,35 +184,9 @@ namespace Asteroids
 
         public LinkedList<Vector2> GetRocks()
         {
-            LinkedList<Vector2> list = new LinkedList<Vector2>();
-            //if(typeOfRock == 1)
-            //{
-            #region Rock Type #1
+            LinkedList<Vector2> list = new LinkedList<Vector2>();            
 
-            //list.AddLast(new Vector2(1 * scale, 0 * scale));
-            //list.AddLast(new Vector2(1 * scale, 1 * scale));
-
-            //list.AddLast(new Vector2(1 * scale, 1 * scale));
-            //list.AddLast(new Vector2(1 * scale, 2 * scale));
-
-            //list.AddLast(new Vector2(1 * scale, 2 * scale));
-            //list.AddLast(new Vector2(2 * scale, 2 * scale));
-
-            //list.AddLast(new Vector2(2 * scale, 2 * scale));
-            //list.AddLast(new Vector2(1 * scale, 3 * scale));
-
-            //list.AddLast(new Vector2(1 * scale, 3 * scale));
-            //list.AddLast(new Vector2(0 * scale, 2 * scale));
-
-            //list.AddLast(new Vector2(0 * scale, 2 * scale));
-            //list.AddLast(new Vector2(0 * scale, 1 * scale));
-
-            //list.AddLast(new Vector2(0 * scale, 1 * scale));
-            //list.AddLast(new Vector2(1 * scale, 0 * scale));
-
-            #endregion
-
-            #region
+            #region Rock Vectors
 
             list.AddLast(new Vector2(1 * scale, 0 * scale));
             list.AddLast(new Vector2(2 * scale, 0 * scale));
@@ -340,21 +212,10 @@ namespace Asteroids
             list.AddLast(new Vector2(0 * scale, 1 * scale));
             list.AddLast(new Vector2(1 * scale, 0 * scale));
 
-
             #endregion
-
-            //}
-
-            #region Rock Type #2 
-            #endregion
-
 
             return list;
         }
-
-        #endregion
-
-        #region Converstion Methods (GetRocksForCollision, ConvertRocksLine2D, ConvertAngleDegrees)
 
         public LinkedList<Vector2> GetRocksForCollision()
         {
@@ -376,7 +237,6 @@ namespace Asteroids
                   position.Y + (Yrotated * scale)));
             }
             return ll;
-
         }
 
         public LinkedList<Line2D> ConvertRocksLine2D()
@@ -426,13 +286,6 @@ namespace Asteroids
             list.AddLast(new Vector2(0 * scale, 3 * scale));
             list.AddLast(new Vector2(0 * scale, 0 * scale));
 
-            //list.AddLast(new Vector2(1 * scale, 3 * scale));
-            //list.AddLast(new Vector2(1 * scale, 0 * scale));
-
-            //list.AddLast(new Vector2(2 * scale, 3 * scale));
-            //list.AddLast(new Vector2(2 * scale, 0 * scale));
-            
-
             return list;
         }
 
@@ -441,27 +294,6 @@ namespace Asteroids
             LinkedList<Vector2> lineList = GetSquare();
 
             LinkedList<Vector2> ll = new LinkedList<Vector2>();
-
-
-            ////////Vector2 center = new Vector2(.5f * scale, .5f * scale);
-            //////if (this.rotation > 0 || this.rotation <= (float)(Math.PI / 2))
-            //////{
-            //////    Vector2 center = new Vector2(1 * scale, -1 * scale);
-            //////}
-            //////if (this.rotation > (float)(Math.PI / 2) || this.rotation <= (float)(Math.PI))
-            //////{
-            //////    Vector2 center = new Vector2(1 * scale, 1 * scale);
-            //////}
-            //////if (this.rotation > (float)(Math.PI) || this.rotation <= (float)((3 / 2) * Math.PI))
-            //////{
-            //////    Vector2 center = new Vector2(-1 * scale, 1 * scale);
-            //////}
-            //////if (this.rotation > (float)((3 / 2) * Math.PI) || this.rotation <= (float)(2 * Math.PI))
-            //////{
-            //////    Vector2 center = new Vector2(-1 * scale, -1 * scale);
-            //////}
-
-            //////float rotation = 0;//====================================================================TESTING
 
             foreach (Vector2 v in lineList)
             {
@@ -476,7 +308,6 @@ namespace Asteroids
                 ll.AddLast(new Vector2(position.X + (Xrotated * scale),
                   position.Y + (Yrotated * scale)));
             }
-
 
             LinkedList<Line2D> lines = new LinkedList<Line2D>();
 
@@ -503,70 +334,6 @@ namespace Asteroids
                 }
             }
 
-
-            #region Recalculate Positions of Square with new Center
-
-            //float[] xCoordinates = new float[4];
-            //float[] yCoordinates = new float[4];
-            //Line2D[] rectangles = lines.ToArray();
-
-            //for (int i = 0; i < rectangles.Length; i++)
-            //{
-            //    xCoordinates[i] = rectangles[i].StartX;
-            //    yCoordinates[i] = rectangles[i].StartY;
-            //}
-
-            ////xCenter = (x1 + x2) / 2
-            ////yCenter = (y1 + y2) / 2
-            ////This is calculated by finding the centroid of the Square that is generated
-            //float centerX = (xCoordinates[0] + xCoordinates[1] + xCoordinates[2]) / 3;
-            //float centerY = (yCoordinates[0] + yCoordinates[1] + yCoordinates[2]) / 3;
-
-            //rotation = 0;
-
-            //foreach (Vector2 v in lineList)
-            //{
-            //    float Xrotated = centerX + (v.X - centerX) *
-            //      (float)Math.Cos(rotation) - (v.Y - centerY) *
-            //      (float)Math.Sin(rotation);
-
-            //    float Yrotated = centerY + (v.X - centerX) *
-            //      (float)Math.Sin(rotation) + (v.Y - centerY) *
-            //      (float)Math.Cos(rotation);
-
-            //    ll.AddLast(new Vector2(position.X + (Xrotated * scale),
-            //      position.Y + (Yrotated * scale)));
-            //}
-
-
-            //LinkedList<Line2D> lines2 = new LinkedList<Line2D>();
-
-            //count = 0;
-            //var1 = 0.0f;
-            //var2 = 0.0f;
-            //var3 = 0.0f;
-            //var4 = 0.0f;
-
-            //foreach (Vector2 l in ll)
-            //{
-            //    if (count == 0)
-            //    {
-            //        var1 = l.X;
-            //        var2 = l.Y;
-            //        count++;
-            //    }
-            //    else
-            //    {
-            //        var3 = l.X;
-            //        var4 = l.Y;
-            //        lines2.AddLast(new Line2D(var1, var2, var3, var4));
-            //        count--;
-            //    }
-            //}
-
-            #endregion
-
-
             return lines;
         }
 
@@ -584,11 +351,6 @@ namespace Asteroids
         {
             return rotation * (180 / Math.PI);
         }
-
-        #endregion
-
-
-        #region Calculation/Input Methods (CheckRotation, AddScore, VelocityCalculation, CheckInput, RecalculatePosition)
 
         public void CheckRotation()
         {
@@ -616,23 +378,14 @@ namespace Asteroids
                  (newPosition.Y - oldPosition.Y));
         }
 
-
-
         public void RecalculatePosition(GameTime gameTime)
         {
-            //if (!crashed)
-            //{
             Matrix rotMatrix = Matrix.CreateRotationZ(rotation);
 
             Vector2 currentDirection = Vector2.Transform(UP, rotMatrix);
             currentDirection *= MAX_THRUST_POWER;
             position += currentDirection;
-
-            //}
         }
-
-        #endregion
-
 
         public void CheckPosition()
         {

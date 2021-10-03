@@ -13,14 +13,8 @@ namespace MyLibrary
 {    
     public class Font
     {
-        #region Variables
-
         public static Color color;
         public static float Width = 16f;
-
-        #endregion
-
-        #region Retrieval Methods (GetChar, TextWidth, TextHeight)
 
         private static LinkedList<Vector2> GetChar(char ch)
         {
@@ -58,8 +52,6 @@ namespace MyLibrary
             float xInitial = x;
             float yInitial = y;
 
-
-
             for (i = 0; i < text.Length; i++)
             {
                 charLines = Characters.GetCharacter(text.ToCharArray()[i]);
@@ -80,10 +72,8 @@ namespace MyLibrary
                     {
                         xInitial = xPos;
                     }
-
                 }
             }
-
 
             return xPos;            
         }
@@ -92,15 +82,10 @@ namespace MyLibrary
         {
             return 3.0f * scale;
         }
-
-        #endregion
-
-        #region WriteText Methods (WriteText, WriteTextSpecifyWidth)
-
+       
         public static void WriteText(PrimitiveBatch pb, float x, float y, float scale,
             Color color, string text)
-        {
-            
+        {            
             if ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio / scale) > 10)                
             {
                 scale = 10;
@@ -125,7 +110,6 @@ namespace MyLibrary
             float xInitial = x;
             float yInitial = y;
 
-
             for (i = 0; i < text.Length; i++)
             {
                 charLines = Characters.GetCharacter(text.ToCharArray()[i]);
@@ -141,7 +125,6 @@ namespace MyLibrary
                     lineList.AddLast(new Vector2(
                         xPos + dx * lineWidth,
                         yPos + dy * lineHeight));
-
                 }
             }
 
@@ -162,7 +145,6 @@ namespace MyLibrary
         public static void WriteTextSpecifyWidth(PrimitiveBatch pb, float x, float y, float scale,
             Color color, string text, float charWidthTemp, float lineWidthTemp)
         {
-
             if ((GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.AspectRatio / scale) > 10)
             {
                 scale = 10;
@@ -173,8 +155,8 @@ namespace MyLibrary
 
             Font.color = color;
 
-            float charWidth = charWidthTemp * scale;//16
-            float lineWidth = lineWidthTemp * scale;  //4
+            float charWidth = charWidthTemp * scale;
+            float lineWidth = lineWidthTemp * scale;  
             float lineHeight = 3.0f * scale;
 
             float dx = 0.0f;
@@ -186,7 +168,6 @@ namespace MyLibrary
 
             float xInitial = x;
             float yInitial = y;
-
 
             for (i = 0; i < text.Length; i++)
             {
@@ -203,7 +184,6 @@ namespace MyLibrary
                     lineList.AddLast(new Vector2(
                         xPos + dx * lineWidth,
                         yPos + dy * lineHeight));
-
                 }
             }
 
@@ -220,7 +200,5 @@ namespace MyLibrary
 
             pb.End();
         }
-
-        #endregion
     }
 }

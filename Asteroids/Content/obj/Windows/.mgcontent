@@ -4,11 +4,53 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/explosion.wav</File>
-    <File>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/success.wav</File>
-    <File>C:/Users/trent/Desktop/Programs/Asteroids/Asteroids/Content/thrust.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/2020-06-18_-_8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda.mp3</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/2021-06-29_-_The_Pain_That_Never_Left_-_David_Fesliyan.mp3</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/AsteroidsMenu.png</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/AsteroidsSplash.png</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/explosion.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/font.spritefont</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/InstructionsBackgroundScreen.png</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/InstructionsFont.spritefont</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/InstructionsImage.png</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/menu.spritefont</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/ProgramBackground.png</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/RobotHelmPlaceHolderPainting.jfif</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/EnemyShipExplosionSFX.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/EnemyShoot.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/Enter.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/FinishName.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/Lower.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/PlayerShipExplosionSFX.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/PlayerShoot.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/RockExplosionSFX.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/SoundEffects/Upper.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/StarBackground.jpg</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/success.wav</File>
+    <File>C:/Users/trent/Documents/GitHub/Asteroids/Asteroids/Content/thrust.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -17,19 +17,10 @@ namespace Asteroids
 {
     class EnemyShip : DrawableGameComponent
     {
-
-        #region VARIABLES 
-
-        #region Components
-
         private PrimitiveBatch pb;
 
         TimeSpan elapsedTime;
         TimeSpan gravityTime;
-
-        #endregion
-
-        #region PlayerShip Variables
 
         LinkedList<Vector2> enemyShip;
 
@@ -40,27 +31,15 @@ namespace Asteroids
 
         Vector2 center;
 
-        #endregion
-
-        #region Thrust Variables
-
-
         public bool isThrusting = false;
         public float thrustPower;
         public float thrustPowerIncrement;
 
         public float MAX_THRUST_POWER = 1f;//Remake this into a cosnt
-        #endregion
-
-        #region Game State Variables
-
-
+        
         public bool crashed = false;
 
-        #endregion 
-
-        #region Velocity Variables
-
+        
         Vector2 UP = new Vector2(0, -1);
         Vector2 DOWN = new Vector2(0, 1);
 
@@ -76,17 +55,8 @@ namespace Asteroids
         public readonly int typeOfEnemyShip;
         public int size;
 
-        #endregion
-
         public int score;
 
-
-        #endregion
-
-        #region Constructor
-        //r.rotation - (45 * (Math.PI) / 180)), r.size - 1, r.position.X, r.position.Y
-        // float enemyShipRotation, int enemyShipSize, float xPosition, float yPosition, int type, Game game  
-        //Game game, int type, 
         public EnemyShip(Game game, float xPosition, float yPosition, float enemyShipRotation, int type, int enemyShipSize) : base(game)
         {
             pb = new PrimitiveBatch(game.GraphicsDevice);
@@ -107,11 +77,6 @@ namespace Asteroids
             size = enemyShipSize;
         }
 
-
-        #endregion
-
-        #region Standard Monogame Methods (Initialize, LoadContent, Update, Draw)
-
         public override void Initialize()
         {
             position = new Vector2(xInitialPos, yInitialPos);//Note: This and Rotation will be passed in when the object is initalizes.
@@ -123,8 +88,6 @@ namespace Asteroids
             score = 5;
       
             center = new Vector2(1, 1);
-
-            //rotation = 0;
 
             enemyShip = GetEnemyShip();
 
@@ -158,57 +121,23 @@ namespace Asteroids
 
             CheckPosition();
 
-            //Console.WriteLine($"EnemyShip: PositionX {position.X} PositionY {position.Y}");
-
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.TransparentBlack);
-
             pb.Begin(PrimitiveType.LineList);
 
             DrawEnemyShip();
 
-            //DrawSquare();
-
-            //DrawEnemyShipCollision();
-
-            //pb.AddLine(new Vector2(center.X, center.Y - 10), new Vector2(center.X, center.Y + 10), Color.Violet, 5);
-            //pb.AddLine(new Vector2(center.X - 10, center.Y), new Vector2(center.X + 10, center.Y), Color.Violet, 5);
-
-
-            ////pb.AddVertex(new Vector2(position.X, position.Y - 10), Color.Violet);
-            ////pb.AddVertex(new Vector2(position.X, position.Y + 10), Color.Violet);
-
-            ////pb.AddVertex(new Vector2(position.X - 10, position.Y), Color.Violet);
-            ////pb.AddVertex(new Vector2(position.X + 10, position.Y), Color.Violet);
-
-            //pb.AddVertex(new Vector2(242.1367f, 275.431f), Color.Violet);
-            //pb.AddVertex(new Vector2(242.1367f, 295.431f), Color.Violet);
-
-            //pb.AddVertex(new Vector2(300, 375), Color.Violet);
-            //pb.AddVertex(new Vector2(300, 300), Color.Violet);
-
-            /*
-            Laser Collision: l1.StartX (242.1367, 275.431) l1.EndX (242.1367, 295.431)
-            EnemyShip Collision:  l2.StartX (300, 375) l2.EndX (300, 300)
-             */
             Line2D.Intersects(new Line2D(238.5262f, 283.2247f, 238.5262f, 303.2247f),
                 new Line2D(300, 375, 300, 300));
-
-
 
             pb.End();
 
 
             base.Draw(gameTime);
         }
-
-        #endregion
-
-        #region Drawing EnemyShip Methods (DrawEnemyShip, GetSquare, GetEnemyShip)
 
         public void DrawEnemyShip()
         {
@@ -258,10 +187,9 @@ namespace Asteroids
         {
             LinkedList<Vector2> list = new LinkedList<Vector2>();
 
+            #region Enemy Ship Vectors
 
-            #region CRASHED Lunar Lander
-
-            //Top Of Ship
+            //Outline of Ship
             list.AddLast(new Vector2(3 * scale, 0 * scale));
             list.AddLast(new Vector2(4 * scale, 1 * scale));
 
@@ -306,22 +234,11 @@ namespace Asteroids
             list.AddLast(new Vector2(3 * scale, 5 * scale));
 
             list.AddLast(new Vector2(3 * scale, 5 * scale));
-            list.AddLast(new Vector2(2 * scale, 7 * scale));
-
-            
-
-
+            list.AddLast(new Vector2(2 * scale, 7 * scale));           
             #endregion
-
-
-
 
             return list;
         }
-
-        #endregion
-
-        #region Converstion Methods (GetEnemyShipForCollision, ConvertEnemyShipLine2D, ConvertAngleDegrees)
 
         public LinkedList<Vector2> GetEnemyShipForCollision()
         {
@@ -412,7 +329,6 @@ namespace Asteroids
 
         public LinkedList<Line2D> EnemyShipSquareCollision()
         {
-            //Vector2 center = new Vector2(.5f * scale, .5f * scale);
             LinkedList<Vector2> lineList = GetSquare();
 
             LinkedList<Vector2> ll = new LinkedList<Vector2>();
@@ -456,17 +372,7 @@ namespace Asteroids
                     count--;
                 }
             }
-
-            #region Testing
-            Console.WriteLine("((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((");
-            foreach (Line2D l in lines)
-            {
-                Console.WriteLine($"Point in EnemyShip Square Collision StartX={l.StartX} StartY={l.StartY} EndX={l.EndX} EndY={l.EndY} ");
-            }
-            Console.WriteLine(")))))))))))))))))))))))))))))))))))))))))))0)))))))))))))))))))))))))))))))))))))))))))0)))))))))))))))))))))))))))))))))))))))))))0))))))))))))0))))))))))))0");
-
-            #endregion
-
+            
             return lines;
         }
 
@@ -477,8 +383,6 @@ namespace Asteroids
             {
                 pb.AddVertex(new Vector2(line.StartX, line.StartY), Color.Coral);
                 pb.AddVertex(new Vector2(line.EndX, line.EndY), Color.Coral);
-
-
             }
         }
 
@@ -486,12 +390,7 @@ namespace Asteroids
         {
             return rotation * (180 / Math.PI);
         }
-
-        #endregion
-
-
-        #region Calculation/Input Methods (CheckRotation, AddScore, VelocityCalculation, CheckInput, RecalculatePosition)
-
+        
         public void CheckRotation()
         {
             if (rotation > ((float)(2 * Math.PI)))
@@ -518,23 +417,14 @@ namespace Asteroids
                  (newPosition.Y - oldPosition.Y));
         }
 
-
-
         public void RecalculatePosition(GameTime gameTime)
-        {
-            //if (!crashed)
-            //{
+        {            
             Matrix rotMatrix = Matrix.CreateRotationZ(rotation);
 
             Vector2 currentDirection = Vector2.Transform(UP, rotMatrix);
             currentDirection *= MAX_THRUST_POWER;
             position += currentDirection;
-
-            //}
         }
-
-        #endregion
-
 
         public void CheckPosition()
         {
@@ -553,8 +443,7 @@ namespace Asteroids
             if (position.Y < 0)
             {
                 position.Y = StateManager.GraphicsDevice.Viewport.Height;
-            }
-            
+            }            
         }
 
         public void GetRectanglePositions(out float[] xCoordinates, out float[] yCoordinates)

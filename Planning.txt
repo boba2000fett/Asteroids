@@ -9,14 +9,99 @@
             ----With the EnemyShip, make them spawn between random intervals between 50 seconds and 3 minutes.
                 Maybe make it so they only appear once the player is above a certain score?
 
-            Also, with the EnemyShip, prehaps I can randomly spawn it on either side of the screen
-                When the ship starts at the left side of the screen, set MAX_THRUST_POWER to positive
-                When the ship starts at the right side of the screen, set MAX_THRUST_POWER to negative
+            ---Also, with the EnemyShip, prehaps I can randomly spawn it on either side of the screen
+               --- When the ship starts at the left side of the screen, set MAX_THRUST_POWER to positive
+                ---When the ship starts at the right side of the screen, set MAX_THRUST_POWER to negative
 
-            Maybe the EnemyShips shoot lasers at the PlayerShip at Random Intervals while they are on screen
-                (The Intervals will be between 3 and 5 seconds)
+            ---Maybe the EnemyShips shoot lasers at the PlayerShip at Random Intervals while they are on screen
+                ---(The Intervals will be between 3 and 5 seconds)
                 Also make their Lasers not last as long. Maybe you can set this in the Laser Class's 
                 Update Method, and then check laserType. If positive (player), then make it the normal three seconds
                 that I have been doing. If not, then make it 1 second or something. 
 
-	Add in Player Getting Extra Lives
+	---Add in Player Getting Extra Lives
+======================================================================================================================================================================================================================================
+July 6th, 2021
+
+---Finish Splash and Menu Screen
+	---Add Asteroids for the text to the Image
+
+--Add in Explosions for the Rocks and EnemyShip Objects. 
+	---Make an Explosion Object, and then during the Collision in PlayScreen, spawn an Explosion object at that location, and maybe make different explosions depending on the object.
+
+---Make Rocks scroll faster as the time goes by (Maybe Score?)
+---Make EnemyShips spawn sooner as time goes by (Maybe Score?)
+
+---Maybe see if you can make the Screen fade?
+
+Change Buttons on the HighScore Screen
+	Make it so you must press a different button to confirm.
+	Maybe make it so you have to press e or something to enter a character
+Add in Sounds On High Score Screen
+	--When Clicking Up
+	--When Clicking Down
+	--When Entering a Character
+	---When Player Shooting 
+	---When Enemy Shooting 
+	--Turn Down Musescore scores of them and try again
+
+Explosion Class: Draw either a Square or a Hexagon, and then make them spiral outwards and then back inwards.
+
+
+If(player score < 1000)
+	==rocks speed is 1
+	==activeEnemyShips speed is ?
+	==EnemyShip spawn time (50,180)
+If(player score < 2000)
+	==rocks speed is 2
+	==activeEnemyShips speed is ?
+	==EnemyShip spawn time (50,120)
+If(player score < 3000)
+	==rocks speed is 3
+	==activeEnemyShips speed is ?
+	==EnemyShip spawn time (40,100)
+If(player score > 3000)
+	==rocks speed is 5
+	==activeEnemyShips speed is ?
+	==EnemyShip spawn time (20,70)
+
+
+
+
+
+Add in:
+PlayScreen.cs+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Variable List:
+LinkedList<Explosion> activeExplosions;
+
+Update:
+for(int i = 0; i < activeExplosions.Length; i++)
+	if (activeExplosions[i].finshed)
+		activeExplosions.Remove(activeExplosions[i])
+
+foreach (Explosion ex in activeExplosions)
+	ex.Update()
+
+Draw
+foreach (Explosion ex in activeExplosions)
+	ex.Draw()
+
+
+Explosion Class----------------------------------------------------------------------------------------------------
+Variables:
+Vector2 position
+int type
+bool finished
+
+Explosion()
+
+
+Draw()
+DrawExplosion
+
+
+Update()
+rotation += .5f;
+if(Time < 5 seconds)
+	scale += .001f;
+explosionTime += gameTime.ElapsedGameTime;
